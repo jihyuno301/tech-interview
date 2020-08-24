@@ -12,8 +12,8 @@
 ### HTTP와 HTTPS
 - HTTP 프로토콜
     - 개념 
-        - HyperText Transfer Protocol
-        - 웹 상에서 클라이언트와 서버 간에 요청/응답(request/response)으로 정보를 주고 받을 수 있는 프로토콜
+        - HyperText Transfer Protocol(하이퍼텍스트 전송 프로토콜)
+        - 서로 다른 시스템들 사이에서 통신을 주고받게 해주는 가장 기초적인 프로토콜
     - 특징 
         - 주로 HTML 문서를 주고받는 데에 쓰인다. 
         - TCP와 UDP를 사용하며, **80번 포트**를 사용한다.
