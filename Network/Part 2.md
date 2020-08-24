@@ -28,6 +28,7 @@
             - 또는 HTTP over TLS, HTTP over SSL, HTTP Secure
         - 웹 통신 프로토콜인 HTTP의 보안이 강화된 버전의 프로토콜
     - 특징 
+        - SSL은 서버와 브라우저 사이에 안전하게 암호화된 연결을 만들 수 있게 도와주고, 서버 브라우저가 민감한 정보를 주고받을 때 이것이 도난당하는 것을 막아준다.
         - HTTPS의 기본 TCP/IP 포트로 **443번 포트**를 사용한다.
         - HTTPS는 소켓 통신에서 일반 텍스트를 이용하는 대신에, 웹 상에서 정보를 암호화하는 SSL이나 TLS 프로토콜을 통해 세션 데이터를 암호화한다. 
             - TLS(Transport Layer Security) 프로토콜은 SSL(Secure Socket Layer) 프로토콜에서 발전한 것이다.
