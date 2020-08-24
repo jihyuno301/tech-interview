@@ -10,7 +10,9 @@
 ---
 
 ### HTTP와 HTTPS
+
 <img src="./Network/HTTP_HTTPS.jpg" width="70%" height="70%">
+
 - HTTP 프로토콜
     - 개념 
         - HyperText Transfer Protocol(하이퍼텍스트 전송 프로토콜)
