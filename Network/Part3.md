@@ -7,7 +7,7 @@
 - [REST와 RESTful의 개념](#REST/RESTful)
 - [소켓(Socket)이란](#소켓(Socket)이란)
 - [Socket.io와 WebSocket의 차이](#Socket.io와WebSocket)
-- [Frame, Packet, Segment, Datagram]
+- [Frame, Packet, Segment, Datagram](#Frame,Packet,Segment,Datagram)
 
 <br>
 
@@ -32,15 +32,15 @@
 - DNS의 동작 원리
 	![DNS 프로세스](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F269b0a50-1b13-482f-921c-254237b3c8e5%2FUntitled.png?table=block&id=3fb206b4-46ba-4592-8ec9-951ab5c30b09&width=3140&userId=&cache=v2)
 1. 웹브라우저에 `www.naver.com`을 입력하면 먼저 `Local DNS`에게   
-www.naver.com이라는 hostname에 대한 IP 주소를 질의하여 Local DNS에 없으면   
+`www.naver.com`이라는 hostname에 대한 IP 주소를 질의하여 Local DNS에 없으면   
 다른 DNS name 서버 정보를 받는다. `(Root DNS 정보)`
-2. `Root DNS` 서버에 www.naver.com 질의
+2. `Root DNS` 서버에 `www.naver.com` 질의
 3. Root DNS 서버로부터 `com 도메인`을 관리하는 `TLD(Top-Level Domina)` 서버 정보를 전달 받는다.
-4. `TLD` 서버에 www.naver.com 질의
+4. `TLD` 서버에 `www.naver.com` 질의
 5. TLD에서 `www.naver.com`을 관리하는 DNS 정보를 전달한다.
-6. "www.naver.com" 도메인을 관리하는 DNS 서버에 "www.naver.com" 호스트 네임에 대한 IP 주소 질의
-7. `Local DNS` 서버에게 www.naver.com에 대한 IP 주소는 `222.122.195.6이라고 응답`
-8. Local DNS는 www.naver.com에 대한 IP 주소를 캐싱하고 IP 주소 정보를 전달
+6. `"www.naver.com"` 도메인을 관리하는 DNS 서버에 `"www.naver.com"` 호스트 네임에 대한 IP 주소 질의
+7. `Local DNS` 서버에게 `www.naver.com`에 대한 IP 주소는 `222.122.195.6이라고 응답`
+8. Local DNS는 `www.naver.com`에 대한 IP 주소를 캐싱하고 IP 주소 정보를 전달
 <br></br>
 - DNS의 구성 요소   
     ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3k159%2Fbtqzb8L6Qnu%2FJk5Z1RzHNuvqwZMcMGEwSk%2Fimg.png)
@@ -200,4 +200,9 @@ http 프로토콜로 통신하는 경우 연결이 유지되지 않기 때문에
 	
 <br>
 
-### Socket.io와WebSocket
+### Frame,Packet,Segment,Datagram
+- 프로토콜 데이터 단위 (PDU / Protocol Data Unit)
+	- 데이터 통신에서 상위 계층이 전달한 데이터에 붙이는 제어정보
+	- 모든 계층에서 우리가 전송하는 데이터 자체는 동일하지만   
+	  각 레이어를 거치면서 헤더 정보가 추가되며 이름이 달라진다.
+![프로토콜 링크](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/OSI_Model_v1.svg/870px-OSI_Model_v1.svg.png)
