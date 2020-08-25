@@ -228,6 +228,9 @@
 > - [https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS)
 
 ### GET 메서드와 POST 메서드
+
+<img src="./img/GetPost.png" width="70%" height="70%">
+      
 * HTTP 프로토콜을 이용해서 서버에 데이터(요청 정보)를 전달할 때 사용하는 방식
 * GET 메서드 방식
   * 개념
