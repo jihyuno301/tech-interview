@@ -193,7 +193,9 @@
 > - [https://goddaehee.tistory.com/169](https://goddaehee.tistory.com/169)
 
 ### CORS란 
+<img src="./img/S.jpg" width="70%" height="70%">
 - CORS(Cross Origin Resource Sharing)란 
+    - 도메인 또는 포트가 다른 서버의 자원을 요청하는 매커니즘을 말한다.
     - 웹 서버에게 보안 cross-domain 데이터 전송을 활성화하는 cross-domain 접근 제어권을 부여한다.
 - 배경
     - 처음 전송되는 리소스의 도메인과 다른 도메인으로부터 리소스가 요청될 경우 해당 리소스는 cross-origin HTTP 요청에 의해 요청된다.
