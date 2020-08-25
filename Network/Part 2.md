@@ -95,6 +95,9 @@
             - 요청과 응답 메시지의 본문 크기를 바이트 단위로 표시해준다. 메시지 크기에 따라 자동으로 만들어진다.
             - `Content-Length: 88052`
         - **Cache-Control** 
+            - 각 리소스는 Cache-Control HTTP 헤더를 통해 캐싱 정책을 정의할 수 있다.
+            - Cache-Control 지시문은 응답을 캐시할 수 있는 사용자, 해당 조건 및 기간을 제어한다.
+            - `Cache-Control: public, max-age=3600`
         - **Pragma**
         - **Trailer**
 -  HTTP 헤더 내 엔터티/개체 헤더 (Entity Header) 항목
