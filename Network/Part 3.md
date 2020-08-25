@@ -47,7 +47,7 @@
 - DNS의 질의/응답 과정
   1. 재귀적 질의 (Recursive Queries)
     - **가장 간단한 유형의 DNS 쿼리**로, Client가 원하는 정보를 전달해 주거나, 정보가 없다면 에러 메시지를 전달
-    - www.naver.com에 대한 변환 요청 과정
+    - www.naver.com에 대한 변환 요청 과정  
     ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F9961C53B5B1E96630C436A)
   2. 반복적 질의 (Iterative Queries)
     - 질의를 요청한 client 또는 server가 최종적인 응답을 받을 때까지 요청과 응답을 반복적으로 진행
@@ -156,7 +156,7 @@
 	- 네트워크상에서 동작하는 프로그램 간 통신의 종착점(Endpoint)
 	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자
 	- => 서로 다른 프로세스끼리 데이터 전달이 가능
-- 소켓 통신의 Workflow
+- 소켓 통신의 Workflow  
 ![워크플로우](https://t1.daumcdn.net/cfile/tistory/993EAD4E5C66371C2B)
 	- **서버 (Server)**
 		1. **socket()** 함수를 이용하여 소켓을 생성
