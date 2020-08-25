@@ -210,13 +210,20 @@
 <img src="./img/CORS2.png" width="70%" height="70%">
 
 - 과정
-    - CORS 요청 시에는 미리 OPTIONS 주소로 서버가 CORS를 허용하는지 물어본다.
-    - 이때 Access-Control-Request-Method로 실제로 보내고자 하는 메서드를 알리고,
-    - Access-Control-Request-Headers로 실제로 보내고자 하는 헤더들을 알린다.
-    - Allow 항목들은 Request에 대응되는 것으로, 서버가 허용하는 메서드와 헤더를 응답하는데 사용된다.
-    - Request랑 Allow가 일치하면 CORS 요청이 이루어진다.
+    - CORS 메커니즘은 브라우저와 서버 간의 안전한 교차 출처 요청 및 데이터 전송을 지원한다.
+    - HTTP OPTIONS 요청 메서드를 이용해 서버로부터 지원 중인 메서드들을 내려 받은 뒤, 서버에서 "approval"(승인) 시에 실제 HTTP 요청 메서드를 이용해 실제 요청을 전송하는 것을 말한다. 
+    - 서버들은 또한 클라이언트에게 (Cookie와 HTTP Authentication 데이터를 포함하는) "credentials"가 요청과 함께 전송되어야 하는지를 알려줄 수도 있다.
+
+    1. 브라우저에서 다른 도메인의 서버로 options 메서드로 전송한다. 
+    2. 서버의 설정이 access-control-allow-origin이 허용일 경우 OK를 리턴한다. 
+    3. OK이며, 사용 가능한 http  메소드 라면, 요청하려는 API를 서버 측에 호출한다. 
+    4. 서버에서 응답한다. 
+    - 이렇게 2번의 통신이 클라이언트와 서버에서 일어나게 된다. 
+    - options으로 확인하는 것은 http  메소드 중 멱등성이 없는 메소드로 확인 및 리턴으로 해당 API로 사용할 수 있는 메서드를 리턴하여 요청을 수행할 수 있는지를 확인하기 위함이다.  
 
 > :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
+
+> - [https://uiandwe.tistory.com/1244](https://uiandwe.tistory.com/1244)
 > - [https://zamezzz.tistory.com/137](https://zamezzz.tistory.com/137)
 > - [https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS)
 
