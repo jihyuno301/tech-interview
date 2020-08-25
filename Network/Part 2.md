@@ -186,7 +186,7 @@
                 * 만약 주소를 일일이 지정하기 싫다면 *으로 모든 주소에 CORS 요청을 허용되지만 그만큼 보안이 취약해진다.
             * 유사한 헤더로 `Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Methods, Access-Control-Allow-Headers` 등이 있다. 
 
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
+> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
 > - [http://www.ktword.co.kr/abbr_view.php?nav=&m_temp1=5905&id=902](http://www.ktword.co.kr/abbr_view.php?nav=&m_temp1=5905&id=902)
 > - [https://gmlwjd9405.github.io/2019/01/28/http-header-types.html](https://gmlwjd9405.github.io/2019/01/28/http-header-types.html)
 > - [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
@@ -287,87 +287,92 @@
 
 <!-- * 클라이언트에서 서버로 데이터를 전송하려면 GET이나 POST 방식밖에 없다. -->
 
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
+> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
 > - [https://blog.outsider.ne.kr/312](https://blog.outsider.ne.kr/312)
 > - [https://hongsii.github.io/2017/08/02/what-is-the-difference-get-and-post/](https://hongsii.github.io/2017/08/02/what-is-the-difference-get-and-post/)
 > - [https://www.w3schools.com/tags/ref_httpmethods.asp](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
 ### 쿠키와 세션
-* HTTP 프로토콜의 특징
-  * 비연결 지향(Connectionless)
-      * 클라이언트가 request를 서버에 보내고, 서버가 클라이언트에 요청에 맞는 response를 보내면 바로 연결을 끊는다.
-  * 상태정보 유지 안 함(Stateless)
-      * 연결을 끊는 순간 클라이언트와 서버의 통신은 끝나며 상태 정보를 유지하지 않는다.
-* 쿠키와 세션의 필요성
-    * HTTP 프로토콜은 위와 같은 특징으로 모든 요청 간 의존관계가 없다.
-    * 즉, 현재 접속한 사용자가 이전에 접속했던 사용자와 같은 사용자인지 아닌지 알 수 있는 방법이 없다.
-    * 계속해서 연결을 유지하지 않기 때문에 리소스 낭비가 줄어드는 것이 큰 장점이지만, 통신할 때마다 새로 연결하기 때문에 클라이언트는 매 요청마다 인증을 해야 한다는 단점이 있다.
-    * 이전 요청과 현재 요청이 같은 사용자의 요청인지 알기 위해서는 상태를 유지해야 한다.
-    * HTTP 프로토콜에서 상태를 유지하기 위한 기술로 쿠키와 세션이 있다.
-* 쿠키(Cookie)란?
-  * 개념
-      * 클라이언트 로컬에 저장되는 키와 값이 들어있는 파일이다.
-      * 이름, 값, 유효 시간, 경로 등을 포함하고 있다.
-      * 클라이언트의 상태 정보를 브라우저에 저장하여 참조한다.
-  * 구성 요소
-      * 쿠키의 이름(name)
-      * 쿠키의 값(value)
-      * 쿠키의 만료시간(Expires)
-      * 쿠키를 전송할 도메인 이름(Domain)
-      * 쿠키를 전송할 경로(Path)
-      * 보안 연결 여부(Secure)
-      * HttpOnly 여부(HttpOnly)
-  * 동작 방식  
-      <img src="./images/cookie-process.png" width="50%" height="50%">
-      1. 웹브라우저가 서버에 요청
-      2. 상태를 유지하고 싶은 값을 쿠키(cookie)로 생성
-      3. 서버가 응답할 때 HTTP 헤더(Set-Cookie)에 쿠키를 포함해서 전송
-          ```java
-          Set−Cookie: id=doy
-          ```
-      4. 전달받은 쿠키는 웹브라우저에서 관리하고 있다가, 다음 요청 때 쿠키를 HTTP 헤더에 넣어서 전송
-          ```java
-          cookie: id=doy
-          ```
-      5. 서버에서는 쿠키 정보를 읽어 이전 상태 정보를 확인한 후 응답
-  * 쿠키 사용 예
-      * 아이디, 비밀번호 저장
-      * 쇼핑몰 장바구니
-* 세션(Session)이란?
-  * 개념
-      * 일정 시간 동안 같은 브라우저로부터 들어오는 요청을 하나의 상태로 보고 그 상태를 유지하는 기술이다.
-      * 즉, 웹 브라우저를 통해 서버에 접속한 이후부터 브라우저를 종료할 때까지 유지되는 상태이다.
-  * 동작 방식  
-      <img src="./images/session-process.png" width="70%" height="70%">
-      1. 웹브라우저가 서버에 요청
-      2. 서버가 해당 웹브라우저(클라이언트)에 유일한 ID(Session ID)를 부여함
-      3. 서버가 응답할 때 HTTP 헤더(Set-Cookie)에 Session ID를 포함해서 전송  
-      쿠키에 Session ID를 JSESSIONID 라는 이름으로 저장
-          ```java
-          Set−Cookie: JSESSIONID=xslei13f
-          ```
-      4. 웹브라우저는 이후 웹브라우저를 닫기까지 다음 요청 때 부여된 Session ID가 담겨있는 쿠키를 HTTP 헤더에 넣어서 전송
-          ```java
-          Cookie: JSESSIONID=xslei13f
-          ```
-      5. 서버는 세션 ID를 확인하고, 해당 세션에 관련된 정보를 확인한 후 응답
-  * 세션 사용 예
-    * 로그인
-> 세션도 쿠키를 사용하여 값을 주고받으며 클라이언트의 상태 정보를 유지한다.  
-> 즉, 상태 정보를 유지하는 수단은 **쿠키** 이다.
-* 쿠키와 세션의 차이점
-  * 저장 위치
-      * 쿠키 : 클라이언트
-      * 세션 : 서버
-  * 보안
-      * 쿠키 : 클라이언트에 저장되므로 보안에 취약하다.
-      * 세션 : 쿠키를 이용해 Session ID만 저장하고 이 값으로 구분해서 서버에서 처리하므로 비교적 보안성이 좋다.
-  * 라이프사이클
-      * 쿠키 : 만료시간에 따라 브라우저를 종료해도 계속해서 남아 있을 수 있다.
-      * 세션 : 만료시간을 정할 수 있지만 브라우저가 종료되면 만료시간에 상관없이 삭제된다.
-  * 속도
-      * 쿠키 : 클라이언트에 저장되어서 서버에 요청 시 빠르다.
-      * 세션 : 실제 저장된 정보가 서버에 있으므로 서버의 처리가 필요해 쿠키보다 느리다.
+<img src="./img/Cookie.png" width="70%" height="70%">
 
-> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/Do-Hee/tech-interview#2-network)    :information_source:[Home](https://github.com/Do-Hee/tech-interview#tech-interview)
+* HTTP의 특징과 쿠키와 세션을 사용하는 이유
+    * HTTP 프로토콜의 특징이자 약점을 보완하기 위해서 사용한다.
+    * HTTP 프로토콜 환경에서 서버는 클라이언트가 누구인지 확인해야한다. 그 이유는 HTTP 프로토콜이 connectionless, stateless한 특성이 있기 때문이다.
+        * 비연결 지향(Connectionless)
+            * 클라이언트가 요청을 한 후 응답을 받으면 그 연결을 끊어 버리는 특징
+            * HTTP는 먼저 클라이언트가 request를 서버에 보내면, 서버는 클라이언트에게 요청에 맞는 response를 보내고 접속을 끊는 특성이 있다.
+            * 헤더에 keep-alive라는 값을 줘서 커넥션을 재활용하는데 HTTP1.1에서는 이것이 디폴트다.
+            * HTTP가 tcp위에서 구현되었기 때문에 (tcp는 연결지향,udp는 비연결지향) 네트워크 관점에서 keep-alive는 옵션으로 connectionless의 연결비용을 줄이는 것을 장점으로 비연결지향이라 한다.
+        * 상태정보 유지 안 함(Stateless)
+            * 통신이 끝나면 상태를 유지하지 않는 특징
+            * 연결을 끊는 순간 클라이언트와 서버의 통신이 끝나며 상태 정보는 유지하지 않는 특성이 있다.
+            * 쿠키와 세션은 위의 두 가지 특징을 해결하기 위해 사용한다.
+            * 예를 들어, 쿠키와 세션을 사용하지 않으면 쇼핑몰에서 옷을 구매하려고 로그인을 했음에도, 페이지를 이동할 때 마다 계속 로그인을 해야 한다.
+            * 쿠키와 세션을 사용했을 경우, 한 번 로그인을 하면 어떠한 방식에 의해서 그 사용자에 대한 인증을 유지하게 된다.
+
+* 쿠키 ( Cookie )
+    * 쿠키란?
+        * 쿠키는 클라이언트(브라우저) 로컬에 저장되는 키와 값이 들어있는 작은 데이터 파일이다.
+        * 사용자 인증이 유효한 시간을 명시할 수 있으며, 유효 시간이 정해지면 브라우저가 종료되어도 인증이 유지된다는 특징이 있다.
+        * 쿠키는 클라이언트의 상태 정보를 로컬에 저장했다가 참조한다.
+        * 클라이언트에 300개까지 쿠키저장 가능, 하나의 도메인당 20개의 값만 가질 수 있음, 하나의 쿠키값은 4KB까지 저장한다.
+        * Response Header에 Set-Cookie 속성을 사용하면 클라이언트에 쿠키를 만들 수 있다.
+        * 쿠키는 사용자가 따로 요청하지 않아도 브라우저가 Request시에 Request Header를 넣어서 자동으로 서버에 전송한다.      
+    * 쿠키의 구성 요소
+        * 이름 : 각각의 쿠키를 구별하는 데 사용되는 이름
+        * 값 : 쿠키의 이름과 관련된 값
+        * 유효시간 : 쿠키의 유지시간
+        * 도메인 : 쿠키를 전송할 도메인
+        * 경로 : 쿠키를 전송할 요청 경로        
+    * 쿠키의 동작 방식
+        * 클라이언트가 페이지를 요청
+        * 서버에서 쿠키를 생성
+        * HTTP 헤더에 쿠키를 포함 시켜 응답
+        * 브라우저가 종료되어도 쿠키 만료 기간이 있다면 클라이언트에서 보관하고 있음
+        * 같은 요청을 할 경우 HTTP 헤더에 쿠키를 함께 보냄
+        * 서버에서 쿠키를 읽어 이전 상태 정보를 변경 할 필요가 있을 때 쿠키를 업데이트 하여 변경된 쿠키를 HTTP 헤더에 포함시켜 응답
+    * 쿠키의 사용 예
+        * 방문 사이트에서 로그인 시, "아이디와 비밀번호를 저장하시겠습니까?"
+        * 쇼핑몰의 장바구니 기능
+        * 자동로그인, 팝업에서 "오늘 더 이상 이 창을 보지 않음" 체크, 쇼핑몰의 장바구니
+
+* 세션 ( Session )
+    * 세션이란?
+        * 세션은 쿠키를 기반하고 있지만, 사용자 정보 파일을 브라우저에 저장하는 쿠키와 달리 세션은 서버 측에서 관리한다.
+        * 서버에서는 클라이언트를 구분하기 위해 세션 ID를 부여하며 웹 브라우저가 서버에 접속해서 브라우저를 종료할 때까지 인증상태를 유지한다.
+        * 물론 접속 시간에 제한을 두어 일정 시간 응답이 없다면 정보가 유지되지 않게 설정이 가능하다.
+        * 사용자에 대한 정보를 서버에 두기 때문에 쿠키보다 보안에 좋지만, 사용자가 많아질수록 서버 메모리를 많이 차지하게 된다.
+        * 즉 동접자 수가 많은 웹 사이트인 경우 서버에 과부하를 주게 되므로 성능 저하의 요인이 된다.
+        * 클라이언트가 Request를 보내면, 해당 서버의 엔진이 클라이언트에게 유일한 ID를 부여하는데 이것이 세션ID다.    
+    * 세션의 동작 방식
+        * 클라이언트가 서버에 접속 시 세션 ID를 발급받는다.
+        * 클라이언트는 세션 ID에 대해 쿠키를 사용해서 저장하고 가지고 있다.
+        * 클라리언트는 서버에 요청할 때, 이 쿠키의 세션 ID를 서버에 전달해서 사용한다.
+        * 서버는 세션 ID를 전달 받아서 별다른 작업없이 세션 ID로 세션에 있는 클라언트 정보를 가져온다.
+        * 클라이언트 정보를 가지고 서버 요청을 처리하여 클라이언트에게 응답한다.
+    * 세션의 특징
+        * 각 클라이언트에게 고유 ID를 부여
+        * 세션 ID로 클라이언트를 구분해서 클라이언트의 요구에 맞는 서비스를 제공
+        * 보안 면에서 쿠키보다 우수
+        * 사용자가 많아질수록 서버 메모리를 많이 차지하게 됨        
+    * 세션의 사용 예
+        * 로그인 같이 보안상 중요한 작업을 수행할 때 사용
+
+* 쿠키와 세션의 차이
+    * 쿠키와 세션은 비슷한 역할을 하며, 동작원리도 비슷하다. 그 이유는 세션도 결국 쿠키를 사용하기 때문이다.
+    * 가장 큰 차이점은 사용자의 정보가 저장되는 위치이다. 때문에 쿠키는 서버의 자원을 전혀 사용하지 않으며, 세션은 서버의 자원을 사용한다.
+    * 보안 면에서 세션이 더 우수하며, 요청 속도는 쿠키가 세션보다 더 빠르다. 그 이유는 세션은 서버의 처리가 필요하기 때문이다.
+    * 보안, 쿠키는 클라이언트 로컬에 저장되기 때문에 변질되거나 request에서 스니핑 당할 우려가 있어서 보안에 취약하지만 세션은 쿠키를 이용해서 sessionid 만 저장하고 그것으로 구분해서 서버에서 처리하기 때문에 비교적 보안성이 좋다.
+    * 라이프 사이클, 쿠키도 만료시간이 있지만 파일로 저장되기 때문에 브라우저를 종료해도 계속해서 정보가 남아 있을 수 있다. 또한 만료기간을 넉넉하게 잡아두면 쿠키삭제를 할 때 까지 유지될 수도 있다.
+    * 반면에 세션도 만료시간을 정할 수 있지만 브라우저가 종료되면 만료시간에 상관없이 삭제된다.
+    * 속도, 쿠키에 정보가 있기 때문에 서버에 요청시 속도가 빠르고 세션은 정보가 서버에 있기 때문에 처리가 요구되어 비교적 느린 속도를 낸다.
+* 세션을 사용하면 좋은데 왜 쿠키를 사용할까?
+    * 세션은 서버의 자원을 사용하기때문에 무분별하게 만들다보면 서버의 메모리가 감당할 수 없어질 수가 있고 속도가 느려질 수 있기 때문이다.
+* 쿠키/세션은 캐시와 엄연히 다르다!
+    * 캐시는 이미지나 css, js파일 등을 브라우저나 서버 앞 단에 저장해놓고 사용하는 것이다.
+    * 한번 캐시에 저장되면 브라우저를 참고하기 때문에 서버에서 변경이 되어도 사용자는 변경되지 않게 보일 수 있는데 이런 부분을 캐시를 지워주거나 서버에서 클라이언트로 응답을 보낼 때 header에 캐시 만료시간을 명시하는 방법등을 이용할 수 있다.
+    * 보통 쿠키와 세션의 차이를 물어볼 때 저장위치와 보안에 대해서는 잘 말하는데 사실 중요한 것은 라이프사이클을 얘기하는 것이다.
+
+> :arrow_double_up:[Top](#2-network)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
+> - [https://interconnection.tistory.com/74](https://interconnection.tistory.com/74)
 > - [https://doooyeon.github.io/2018/09/10/cookie-and-session.html](https://doooyeon.github.io/2018/09/10/cookie-and-session.html)
