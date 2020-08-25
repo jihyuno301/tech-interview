@@ -199,10 +199,13 @@
     - 추가 HTTP 헤더를 사용하여 브라우저가 실행 중인 웹 애플리케이션에 선택된 액세스 권한을 부여하도록 하는 메커니즘
     - 다른 출처(도메인, 프로토콜 또는 포트)의 자원 및 리소스를 요청할 때 cross-origin HTTP 요청을 실행한다.
 - 배경
-    - 처음 전송되는 리소스의 도메인과 다른 도메인으로부터 리소스가 요청될 경우 해당 리소스는 cross-origin HTTP 요청에 의해 요청된다.
-    - 보안 상의 이유로, 브라우저들은 스크립트 내에서 초기화되는 cross-origin HTTP 요청을 제한한다.
-        - 예를 들면, XMLHttpRequest는 same-origin 정책을 따르기에 XMLHttpRequest을 사용하는 웹 애플리케이션은 자신과 동일한 도메인으로 HTTP 요청을 보내는 것만 가능했다.
-        - 웹 애플리케이션을 개선시키기 위해, 개발자들은 브라우저 벤더사들에게 XMLHttpRequest가 cross-domain 요청을 할 수 있도록 요청했고 이에 따라 CORS가 생겼다.
+    - 과거에 보안 상의 이유로, 브라우저들은 스크립트 내에서 cross-origin HTTP 요청을 제한했다. 
+    - 예를 들어, XMLHttpRequest and the Fetch API는 same-origin 정책을 따랐다. 
+    - 다른 API의 응답에 올바른 CORS 헤더가 포함되어 있지 않으면 해당 API를 사용하는 웹 응용 프로그램은 동일한 출처의 리소스(같은 도메인, 같은 포트)만 요청할 수 있다. 
+    - 서버의 기본 설정(프레임워크 및 언어다마 다를 수 있다.)에서 CORS_ORIGIN_ALLOW_ALL를 활성화했을 경우 CORS의 요청을 허용하여 응답한다. 
+    - CORS의 최종 주체는 서버입니다. 브라우저에서는 언제든지 CORS를 허용을 할 수 있다. 
+    - 브라우저의 옵션(크롬의 경우 chrome://flags/), CORS 확장프로그램은 해당 옵션을 수정 및 요청 시 헤더에 "Access-Control-Allow-Origin"을 추가하는 역할을 한다. 
+    - 서버에서 CORS의 설정을 허용하지 않았다면 JSONP와 같은 우회를 사용기도 했다.(단 GET통신밖에 할 수 없다.)
 
 <img src="./img/CORS2.png" width="70%" height="70%">
 
