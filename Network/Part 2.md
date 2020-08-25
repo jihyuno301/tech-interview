@@ -194,6 +194,7 @@
 
 ### CORS란 
 <img src="./img/CORS.png" width="70%" height="70%">
+
 - CORS(Cross Origin Resource Sharing)란 
     - 도메인 또는 포트가 다른 서버의 자원을 요청하는 매커니즘을 말한다.
     - 웹 서버에게 보안 cross-domain 데이터 전송을 활성화하는 cross-domain 접근 제어권을 부여한다.
