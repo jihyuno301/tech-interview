@@ -76,6 +76,8 @@
 > - [https://www.ibm.com/support/knowledgecenter/ko/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10630_.htm](https://www.ibm.com/support/knowledgecenter/ko/SSFKSJ_7.1.0/com.ibm.mq.doc/sy10630_.htm)
 
 
+---
+
 ### HTTP 요청 응답 헤더
 - HTTP 헤더 항목(컨텍스트에 따른 그룹핑)
     - General header: 요청과 응답 모두에 적용되지만 바디에서 최종적으로 전송되는 데이터와는 관련이 없는 헤더.    
@@ -192,6 +194,8 @@
 > - [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 > - [https://goddaehee.tistory.com/169](https://goddaehee.tistory.com/169)
 
+---
+
 ### CORS란 
 <img src="./img/CORS.png" width="70%" height="70%">
 
@@ -226,6 +230,8 @@
 > - [https://uiandwe.tistory.com/1244](https://uiandwe.tistory.com/1244)
 > - [https://zamezzz.tistory.com/137](https://zamezzz.tistory.com/137)
 > - [https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS)
+
+---
 
 ### GET 메서드와 POST 메서드
 
@@ -291,6 +297,8 @@
 > - [https://blog.outsider.ne.kr/312](https://blog.outsider.ne.kr/312)
 > - [https://hongsii.github.io/2017/08/02/what-is-the-difference-get-and-post/](https://hongsii.github.io/2017/08/02/what-is-the-difference-get-and-post/)
 > - [https://www.w3schools.com/tags/ref_httpmethods.asp](https://www.w3schools.com/tags/ref_httpmethods.asp)
+
+---
 
 ### 쿠키와 세션
 <img src="./img/Cookie.png" width="70%" height="70%">
