@@ -29,7 +29,7 @@
 	- 분산된 DB를 이용해 각 조직들은 자신들의 도메인 정보를 관리하는 DNS 서버를 자체적으로 운영
 	- 이 수 많은 도메인의 **DNS 서버들이 상호 연동되어 있는 Domain Name Space를 구성**하게 된다.
 <br></br>
-- DNS의 구성 요소 
+- DNS의 구성 요소   
     ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3k159%2Fbtqzb8L6Qnu%2FJk5Z1RzHNuvqwZMcMGEwSk%2Fimg.png)
 	1. 도메인 네임 스페이스 (Domain Name Space) : DNS가 저장, 관리하는 계층적 구조
 		- 최상위에 루트 DNS 서버가 존재하고, 그 하위로 인터넷에 연결된 모든 노드가 연속해서 이어진 계층 구조로 구성
