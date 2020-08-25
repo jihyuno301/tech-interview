@@ -6,7 +6,7 @@
 - [DNS](#DNS란)
 - [REST와 RESTful의 개념](#REST/RESTful)
 - [소켓(Socket)이란](#소켓(Socket)이란)
-- [Socket.io와 WebSocket의 차이]
+- [Socket.io와 WebSocket의 차이](#Socket.io와WebSocket)
 - [Frame, Packet, Segment, Datagram]
 
 <br>
@@ -28,6 +28,7 @@
 		- TCP : Zone Transfer(영역 전송)와 512Byte를 초과하는 DNS 패킷을 전송해야 할 경우
 	- 분산된 DB를 이용해 각 조직들은 자신들의 도메인 정보를 관리하는 DNS 서버를 자체적으로 운영
 	- 이 수 많은 도메인의 **DNS 서버들이 상호 연동되어 있는 Domain Name Space를 구성**하게 된다.
+<br></br>
 - DNS의 구성 요소 
     ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3k159%2Fbtqzb8L6Qnu%2FJk5Z1RzHNuvqwZMcMGEwSk%2Fimg.png)
 	1. 도메인 네임 스페이스 (Domain Name Space) : DNS가 저장, 관리하는 계층적 구조
@@ -38,8 +39,11 @@
 		- 네임 서비스 : 도메인 이름을 IP 주소로 변환하는 것
 		- 리졸버로부터 요청 받은 도메인 이름에 대한 IP주소를 다시 리졸버로 전달해주는 역할을 수행
 		- 해당 도메인을 관리하는 주 네임 서버인 Primary Name Server와 보조 Secondary Name Server로 구성
-	3. 리졸버 (Resolver) : client의 요청을 네임 서버로 전달하고 네임 서버로부터 정보를 받아 client에게 제공하는 기능 수행
-	4. 스티브 리졸버(Stub Resolver) : 질의를 네임 서버로 전달하고 응답을 웹 브라우저로 전달하는 인터페이스 기능만을 수행
+	3. 리졸버 (Resolver)
+		- client의 요청을 네임 서버로 전달하고 네임 서버로부터 정보를 받아 client에게 제공하는 기능 수행
+	4. 스티브 리졸버(Stub Resolver)
+		- 질의를 네임 서버로 전달하고 응답을 웹 브라우저로 전달하는 인터페이스 기능만을 수행
+<br></br>
 - DNS의 질의/응답 과정
   1. 재귀적 질의 (Recursive Queries)
     - **가장 간단한 유형의 DNS 쿼리**로, Client가 원하는 정보를 전달해 주거나, 정보가 없다면 에러 메시지를 전달
@@ -50,10 +54,12 @@
     - 질의를 날릴 때 마다 서버는 질의에 응답이 가능한 NS 목록으로 응답한다.
     - www.naver.com에 대한 변환 요청 과정
     ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F9996813A5B1E97FB2B150D)
+<br></br>
 - DNS의 역할
   1. 호스트 에일리어싱(Host Aliasing) : 복잡한 호스트 네임을 가진 호스트는 하나 이상의 별명을 가질 수 있다.
     - ex) www.naver.com == naver.com 따라서 정식 호스트 네임을 얻기 위해 사용한다.
-  2. 메일 서버 에일리어싱(Mail Server Aliasing) : 위와 마찬가지로 메일주소의 별명을 가질 수 있고 DNS는 정식 호스트 네임을 알려주는 역할
+  2. 메일 서버 에일리어싱(Mail Server Aliasing)
+    - 위와 마찬가지로 메일주소의 별명을 가질 수 있고 DNS는 정식 호스트 네임을 알려주는 역할
   3. 도메인 네임을 IP주소로 변환해주는 역할을 한다.
 <br></br>
 > - [https://security-nanglam.tistory.com/24?category=800892](https://security-nanglam.tistory.com/24?category=800892)
@@ -126,18 +132,18 @@
 - HATEOAS의 예시
 	- 위와 같이 해당 정보에서 다른 정보로 넘어갈 수 있는 하이퍼링크를 명시해주면 된다.
 - REST API의 장단점
-	- 장점
+	- **장점**
 		- 메시지를 단순하게 표현할 수 있고 WEB의 원칙인 확장에 유연하다. (멀티플랫폼)
 		- 별도의 장비나 프로토콜이 필요없이 기존의 HTTP 인프라를 이용할 수 있다. (사용이 용이함)
 		- Server, Client를 완전히 독립적으로 구현할 수 있다.
-	- 단점
+	- **단점**
 		- 표준, 스키마가 없다. 결국 API 문서가 만들어지는 이유이다.
 		- 행위에 대한 메소드가 제한적이다. (GET, POST, PUT, DELETE, HEAD, ... )
 - URI와 URL의 차이점
-	- URI : Uniform Resource Identifier
+	- **URI : Uniform Resource Identifier**
 		- REST에서는 모든 것을 리소스로 표현한다. 그리고 그 자원은 유일한 것을 나타낸다. (Identifier, 식별자)
 		- 파일 뿐만 아니라 여러 자원들 까지도 포함하는 개념
-	- URL : Uniform Resource Locator
+	- **URL : Uniform Resource Locator**
 		- 반면에 과거의 웹에서는 html같은 파일들을 주고 받았기 때문에 Identifier의 개념이 따로 필요없었다.
 		- 파일의 위치를 가리키는 Locator를 썼다.
 <br></br>
@@ -146,10 +152,35 @@
 <br>
 
 ### 소켓(Socket)이란
-![Socket의 개념](https://t1.daumcdn.net/cfile/tistory/993EAD4E5C66371C2B)
 - 소켓(Socket)의 개념
 	- 네트워크상에서 동작하는 프로그램 간 통신의 종착점(Endpoint)
 	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자
 	- => 서로 다른 프로세스끼리 데이터 전달이 가능
 - 소켓 통신의 Workflow
-	
+![워크플로우](https://t1.daumcdn.net/cfile/tistory/993EAD4E5C66371C2B)
+	- **서버 (Server)**
+		1. **socket()** 함수를 이용하여 소켓을 생성
+		2. **bind()** 함수로 ip와 port 번호를 설정
+		3. **listen()** 함수로 클라이언트의 접근 요청에 수신 대기열을 만들어 몇 개의 클라이언트를 대기 시킬지 결정
+		4. **accept()** 함수를 사용하여 클라이언트와의 연결을 기다림
+	- **클라이언트 (Client)**
+		1. socket() 함수로 가장 먼저 소켓을 엶.
+		2. connect() 함수를 이용하여 통신 할 서버의 설정된 ip와 port 번호에 통신을 시도
+		3. 통신을 시도 시, 서버가 accept() 함수를 이용하여 클라이언트의 socket descriptor를 반환
+		4. 이를 통해 클라이언트와 서버가 서로 read(), write()를 하며 통신 (이 과정이 반복)
+<br></br>
+> - [https://song-yoshiii.tistory.com/3](https://song-yoshiii.tistory.com/3)
+
+<br>
+
+### Socket.io와WebSocket
+- 웹 브라우저에서 양방향 통신
+> http 프로토콜은 요청/응답 패러다임이기에 클라이언트에서 요청을 보내야만 그에 대한 응답을 받는다.  
+그러나, 클라이언트가 요청을 보내지 않아도 서버에서 클라이언트쪽으로 데이터를 보내야 하는 경우가 생기게 된다.  
+http 프로토콜로 통신하는 경우 연결이 유지되지 않기 때문에 먼저 요청을 보내는 것이 불가능하기 떄문에  
+이러한 문제를 해결하기 위해 양방향 통신의 개념이 고안이 되었다.
+
+- Websocket
+![웹소켓](http://www.secmem.org/assets/images/websocket-socketio/websocket.png)
+	- 웹 서버와 웹 브라우저간 실시간 양방향 통신환경을 제공해주는 실시간 통신 기술
+	- 양방향으로 원할 때 요청을 보낼 수 있으며 stateless한 HTTP에 비해 오버헤드가 적어서 유용
