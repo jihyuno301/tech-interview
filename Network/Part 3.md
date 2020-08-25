@@ -62,7 +62,7 @@
 <br>
 
 ### REST와 RESTful의 개념
-<img src = "./img/rest1.png">
+<img src = "./img/rest1.png"></img>
 - REST이란?
 	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = 제약 조건의 집합)
 - RESTfUL이란?
