@@ -4,8 +4,8 @@
 
 ### :book: Contents
 - [DNS](#DNS란)
-- [REST와 RESTful의 개념](#REST와 RESTful의 개념)
-- [소켓(Socket)이란]
+- [REST와 RESTful의 개념](#REST/RESTful)
+- [소켓(Socket)이란](#소켓(Socket)이란)
 - [Socket.io와 WebSocket의 차이]
 - [Frame, Packet, Segment, Datagram]
 
@@ -15,8 +15,8 @@
 
 <br>
 
-### DNS란?
-<img src = "./img/dns3.png" width = 400px height = 200px></img>
+### DNS란
+<img src ="https://www.seobility.net/en/wiki/images/d/d0/DNS-Server.png" width=600px height=400px></img>
 - DNS의 등장 배경
 	- TCP/IP 프로토콜을 사용하는 네트워크 안에서는 IP주소를 알고 있어야 상대방 장비와 연결이 가능하다.
 	- 즉, 네트워크에서 도메인이나 호스트 이름을 숫자로 된 IP 주소로 해석해 주기 위해 TCP/IP Network Service인 DNS 등장
@@ -29,7 +29,7 @@
 	- 분산된 DB를 이용해 각 조직들은 자신들의 도메인 정보를 관리하는 DNS 서버를 자체적으로 운영
 	- 이 수 많은 도메인의 **DNS 서버들이 상호 연동되어 있는 Domain Name Space를 구성**하게 된다.
 - DNS의 구성 요소 
-    ![DNS_img](./img/dns_dir.png)
+    ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3k159%2Fbtqzb8L6Qnu%2FJk5Z1RzHNuvqwZMcMGEwSk%2Fimg.png)
 	1. 도메인 네임 스페이스 (Domain Name Space) : DNS가 저장, 관리하는 계층적 구조
 		- 최상위에 루트 DNS 서버가 존재하고, 그 하위로 인터넷에 연결된 모든 노드가 연속해서 이어진 계층 구조로 구성
 		- 각 레벨의 도메인은 그 하위 도메인에 관한 정보를 관리하는 구조 (계층적 구조)
@@ -44,23 +44,112 @@
   1. 재귀적 질의 (Recursive Queries)
     - **가장 간단한 유형의 DNS 쿼리**로, Client가 원하는 정보를 전달해 주거나, 정보가 없다면 에러 메시지를 전달
     - www.naver.com에 대한 변환 요청 과정
-    ![DNS_img](./img/dns4.png)
+    ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F9961C53B5B1E96630C436A)
   2. 반복적 질의 (Iterative Queries)
     - 질의를 요청한 client 또는 server가 최종적인 응답을 받을 때까지 요청과 응답을 반복적으로 진행
     - 질의를 날릴 때 마다 서버는 질의에 응답이 가능한 NS 목록으로 응답한다.
     - www.naver.com에 대한 변환 요청 과정
-    ![DNS_img](./img/dns5.png)
+    ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F9996813A5B1E97FB2B150D)
 - DNS의 역할
   1. 호스트 에일리어싱(Host Aliasing) : 복잡한 호스트 네임을 가진 호스트는 하나 이상의 별명을 가질 수 있다.
     - ex) www.naver.com == naver.com 따라서 정식 호스트 네임을 얻기 위해 사용한다.
   2. 메일 서버 에일리어싱(Mail Server Aliasing) : 위와 마찬가지로 메일주소의 별명을 가질 수 있고 DNS는 정식 호스트 네임을 알려주는 역할
   3. 도메인 네임을 IP주소로 변환해주는 역할을 한다.
-  
+<br></br>
 > - [https://security-nanglam.tistory.com/24?category=800892](https://security-nanglam.tistory.com/24?category=800892)
 > - [https://peemangit.tistory.com/52](https://peemangit.tistory.com/52)
 
 <br>
 
-### REST와 RESTful의 개념
-![rest_img](./img/rest1.png)
-- REST의 개념
+### REST/RESTful
+[!REST](https://gmlwjd9405.github.io/images/network/rest.png)
+- REST이란?
+	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = **제약 조건의 집합**)
+- RESTfUL이란?
+	- 제약 조건의 집합(아키텍처 스타일, 아키텍처 원칙)을 **모두 만족하는 것**
+	- RESTful API는 REST 아키텍처 원칙을 모두 만족하는 API라는 뜻
+	- RESTful API를 이용해서 하나의 큰 서비스 앱을 여러 모듈화된 마이크로 서비스들로 나눌 수 있게 됨
+- REST가 필요한 이유
+	1. 분산 시스템의 도입
+	- 거대한 애플리케이션을 모듈, 기능별로 분리하기 쉬워졌다.
+	- RESTful API를 서비스하기만 하면 다른 module 또는 Application들이라도 RESTful API를 통해 상호 간에 통신 가능
+	2. 멀티 플랫폼 클라이언트 지원
+	- WEB을 위한 HTML 및 이미지 등을 보내던 것과 달리 데이터만 보내면 여러 클라이언트에서 데이터를 적절히 보여줘야 한다.
+	- RESTful API를 사용하면서 데이터만 주고 받기 때문에 여러 클라이언트가 자유롭고 부담없이 데이터 이용 가능
+	- 서버도 요청한 데이터만 깔끔하게 보내주면되기 때문에 가벼워지고 유지보수성도 좋아졌다.
+- REST의 구성 요소
+	1. HTTP URI = 자원 (Resource)
+	2. HTTP Method = 행위
+	3. MIME Type = 표현 방식
+```  javascript
+	GET /100 HTTP/1.1
+	Host : www.naver.com 
+```
+- 요청 메시지의 예시 (REST 방식을 이용한 Request 예제)
+	- 위와 같은 Request 메시지가 있으면 URI 자원은 "/100"이고, HTTP Method는 "GET"이다.
+	- MIME 타입은 보통 Response HTTP header 메시지에 Content-type으로 쓰인다.
+	- 즉, www.naver.com 서버에 /100 이라는 자원을 GET(조회)하고 싶다는 요청으로 해성 가능하다.
+```  javascript
+	HTTP/1.1 200 OK
+	Content-Type : application/json-patch+json
+	
+	[{"title" : "helloworld"}]
+```
+- 응답 메시지의 예시
+	- 이런 Response가 왔다고 가정했을 때
+	- Content-Type을 보고 클라이언트는 IANA라는 타입들의 명세를 모아놓은 사이트에 방문해
+	- application/json-patch+json 이라는 타입의 명세를 확인하고 아래 Body의 내용이 json타입임을 알 수 있는 것
+- 제약 조건의 의미
+	1. Client/Server 방식
+	2. Stateless : 각 요청에 클라이언트의 context가 서버에 저장되어서는 안된다.
+		- 즉, HTTP Sesstion과 같은 컨텍스트 저장소에 상태 정보를 저장하지 않는다.
+		- 상태 정보를 저장하지 않으면 각 API 서버는 들어오는 요청만을 들어오는 메시지로만 처리
+		- 세션과 같은 컨텍스트 정보를 신경쓸 필요가 없기 때문에 구현이 단순해진다.
+	3. Cacheable : 클라이언트는 응답을 캐싱할 수 있어야 한다.
+	4. Layered System : 클라이언트는 서버에 직접 연결되었는지 미들웨어에 연결되었는지 알 필요가 없어야 한다.
+	5. Code on demand (option) : 서버는 코드를 클라이언트에게 보내서 실행하게 할 수 있어야 한다.
+	6. **Uniform Interface** : RESTful 하기 위해서 가장 잘 지켜져야 하는 요소
+		- 자원은 유일하게 식별가능해야 한다.
+		- HTTP Method로 표현을 담아야 한다.
+		- 메시지는 스스로 설명(self-descrptive)해야 한다.
+		- 하이퍼링크를 통해서 애플리케이션의 상태가 전이(HATEOAS)되어야 한다.
+			- HATEOAS : Link라는 HTTP 헤더에 다른 리소스를 가리켜 주는 값을 넣는 방법으로 해결
+			- Spring에는 spring-data-rest, spring hateoas, spring-rest-doc으로
+			- 두 제약을 지키기위해 사용할 수 있는 라이브러리가 존재
+```  javascript
+	HTTP/1.1 200 OK
+	Content-Type : application/json
+	Link : </Spring/1>; rel="previous"
+	
+	[{"title" : "helloworld"}]
+```
+- HATEOAS의 예시
+	- 위와 같이 해당 정보에서 다른 정보로 넘어갈 수 있는 하이퍼링크를 명시해주면 된다.
+- REST API의 장단점
+	- 장점
+		- 메시지를 단순하게 표현할 수 있고 WEB의 원칙인 확장에 유연하다. (멀티플랫폼)
+		- 별도의 장비나 프로토콜이 필요없이 기존의 HTTP 인프라를 이용할 수 있다. (사용이 용이함)
+		- Server, Client를 완전히 독립적으로 구현할 수 있다.
+	- 단점
+		- 표준, 스키마가 없다. 결국 API 문서가 만들어지는 이유이다.
+		- 행위에 대한 메소드가 제한적이다. (GET, POST, PUT, DELETE, HEAD, ... )
+- URI와 URL의 차이점
+	- URI : Uniform Resource Identifier
+		- REST에서는 모든 것을 리소스로 표현한다. 그리고 그 자원은 유일한 것을 나타낸다. (Identifier, 식별자)
+		- 파일 뿐만 아니라 여러 자원들 까지도 포함하는 개념
+	- URL : Uniform Resource Locator
+		- 반면에 과거의 웹에서는 html같은 파일들을 주고 받았기 때문에 Identifier의 개념이 따로 필요없었다.
+		- 파일의 위치를 가리키는 Locator를 썼다.
+<br></br>
+> - [https://jeong-pro.tistory.com/180](https://jeong-pro.tistory.com/180)
+
+<br>
+
+### 소켓(Socket)이란
+![Socket의 개념](https://t1.daumcdn.net/cfile/tistory/993EAD4E5C66371C2B)
+- 소켓(Socket)의 개념
+	- 네트워크상에서 동작하는 프로그램 간 통신의 종착점(Endpoint)
+	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자
+	- => 서로 다른 프로세스끼리 데이터 전달이 가능
+- 소켓 통신의 Workflow
+	
