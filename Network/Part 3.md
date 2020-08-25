@@ -55,7 +55,7 @@
     - ex) www.naver.com == naver.com 따라서 정식 호스트 네임을 얻기 위해 사용한다.
   2. 메일 서버 에일리어싱(Mail Server Aliasing) : 위와 마찬가지로 메일주소의 별명을 가질 수 있고 DNS는 정식 호스트 네임을 알려주는 역할
   3. 도메인 네임을 IP주소로 변환해주는 역할을 한다.
-  
+<br></br>
 > - [https://security-nanglam.tistory.com/24?category=800892](https://security-nanglam.tistory.com/24?category=800892)
 > - [https://peemangit.tistory.com/52](https://peemangit.tistory.com/52)
 
