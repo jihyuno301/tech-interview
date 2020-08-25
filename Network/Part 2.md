@@ -10,7 +10,7 @@
 ---
 
 ### HTTP와 HTTPS
-<img src="./HTTP_HTTPS.jpg" width="70%" height="70%">
+<img src="./img/HTTP_HTTPS.jpg" width="70%" height="70%">
 
 - HTTP 프로토콜
     - 개념 
