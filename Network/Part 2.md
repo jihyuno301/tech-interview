@@ -93,7 +93,7 @@
             - `Connection: Keep-Alive` => 현재 TCP 커넥션을 유지
         - **Content-Length**
             - 요청과 응답 메시지의 본문 크기를 바이트 단위로 표시해준다. 메시지 크기에 따라 자동으로 만들어진다.
-            - 'Content-Length: 88052'
+            - `Content-Length: 88052`
         - **Cache-Control** 
         - **Pragma**
         - **Trailer**
@@ -137,7 +137,7 @@
             - 이에 따라 동일 IP 주소를 갖는 단일 서버에 여러 사이트가 구축 가능
         - **User-Agent**: 클라이언트 소프트웨어(브라우저, OS) 명칭 및 버전 정보
             - 현재 사용자가 어떤 클라이언트(운영체제, 앱, 브라우저 등)를 통해 요청을 보냈는지 알 수 있다.
-            - 'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+            - `User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36`
         - **From**: 클라이언트 사용자 메일 주소 
             - 주로 검색엔진 웹 로봇의 연락처 메일 주소를 나타냄
             - 때로는, 이 연락처 메일 주소를 User-Agent 항목에 두는 경우도 있음
