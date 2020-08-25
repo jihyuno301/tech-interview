@@ -4,8 +4,8 @@
 
 ### :book: Contents
 - [DNS](#DNS란)
-- [REST와 RESTful의 개념](#REST, RESTful의 개념)
-- [소켓(Socket)이란]
+- [REST와 RESTful의 개념](#REST와 RESTful의 개념)
+- [소켓(Socket)이란](#소켓(Socket)이란)
 - [Socket.io와 WebSocket의 차이]
 - [Frame, Packet, Segment, Datagram]
 
@@ -15,8 +15,8 @@
 
 <br>
 
-### DNS란?
-<img src = "./img/dns3.png" width = 600px height = 400px></img>
+### DNS란
+<img src ="https://www.seobility.net/en/wiki/images/d/d0/DNS-Server.png" width=600px height=400px></img>
 - DNS의 등장 배경
 	- TCP/IP 프로토콜을 사용하는 네트워크 안에서는 IP주소를 알고 있어야 상대방 장비와 연결이 가능하다.
 	- 즉, 네트워크에서 도메인이나 호스트 이름을 숫자로 된 IP 주소로 해석해 주기 위해 TCP/IP Network Service인 DNS 등장
@@ -29,7 +29,7 @@
 	- 분산된 DB를 이용해 각 조직들은 자신들의 도메인 정보를 관리하는 DNS 서버를 자체적으로 운영
 	- 이 수 많은 도메인의 **DNS 서버들이 상호 연동되어 있는 Domain Name Space를 구성**하게 된다.
 - DNS의 구성 요소 
-    ![DNS_img](./img/dns_dir.png)
+    ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3k159%2Fbtqzb8L6Qnu%2FJk5Z1RzHNuvqwZMcMGEwSk%2Fimg.png)
 	1. 도메인 네임 스페이스 (Domain Name Space) : DNS가 저장, 관리하는 계층적 구조
 		- 최상위에 루트 DNS 서버가 존재하고, 그 하위로 인터넷에 연결된 모든 노드가 연속해서 이어진 계층 구조로 구성
 		- 각 레벨의 도메인은 그 하위 도메인에 관한 정보를 관리하는 구조 (계층적 구조)
@@ -44,12 +44,12 @@
   1. 재귀적 질의 (Recursive Queries)
     - **가장 간단한 유형의 DNS 쿼리**로, Client가 원하는 정보를 전달해 주거나, 정보가 없다면 에러 메시지를 전달
     - www.naver.com에 대한 변환 요청 과정
-    ![DNS_img](./img/dns4.png)
+    ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F9961C53B5B1E96630C436A)
   2. 반복적 질의 (Iterative Queries)
     - 질의를 요청한 client 또는 server가 최종적인 응답을 받을 때까지 요청과 응답을 반복적으로 진행
     - 질의를 날릴 때 마다 서버는 질의에 응답이 가능한 NS 목록으로 응답한다.
     - www.naver.com에 대한 변환 요청 과정
-    ![DNS_img](./img/dns5.png)
+    ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F9996813A5B1E97FB2B150D)
 - DNS의 역할
   1. 호스트 에일리어싱(Host Aliasing) : 복잡한 호스트 네임을 가진 호스트는 하나 이상의 별명을 가질 수 있다.
     - ex) www.naver.com == naver.com 따라서 정식 호스트 네임을 얻기 위해 사용한다.
@@ -61,8 +61,8 @@
 
 <br>
 
-### REST, RESTful의 개념
-<img src = "./img/rest1.png"></img>
+### REST와 RESTful의 개념
+[!REST](https://gmlwjd9405.github.io/images/network/rest.png)
 - REST이란?
 	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = **제약 조건의 집합**)
 - RESTfUL이란?
@@ -140,3 +140,16 @@
 	- URL : Uniform Resource Locator
 		- 반면에 과거의 웹에서는 html같은 파일들을 주고 받았기 때문에 Identifier의 개념이 따로 필요없었다.
 		- 파일의 위치를 가리키는 Locator를 썼다.
+<br></br>
+> - [https://jeong-pro.tistory.com/180](https://jeong-pro.tistory.com/180)
+
+<br>
+
+### 소켓(Socket)이란
+![Socket의 개념](https://t1.daumcdn.net/cfile/tistory/993EAD4E5C66371C2B)
+- 소켓(Socket)의 개념
+	- 네트워크상에서 동작하는 프로그램 간 통신의 종착점(Endpoint)
+	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자
+	- => 서로 다른 프로세스끼리 데이터 전달이 가능
+- 소켓 통신의 Workflow
+	
