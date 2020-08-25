@@ -64,10 +64,11 @@
 ### REST와 RESTful의 개념
 <img src = "./img/rest1.png"></img>
 - REST이란?
-	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = 제약 조건의 집합)
+	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = **제약 조건의 집합**)
 - RESTfUL이란?
 	- 제약 조건의 집합(아키텍처 스타일, 아키텍처 원칙)을 **모두 만족하는 것**
 	- RESTful API는 REST 아키텍처 원칙을 모두 만족하는 API라는 뜻
+	- RESTful API를 이용해서 하나의 큰 서비스 앱을 여러 모듈화된 마이크로 서비스들로 나눌 수 있게 됨
 - REST가 필요한 이유
 	1. 분산 시스템의 도입
 	- 거대한 애플리케이션을 모듈, 기능별로 분리하기 쉬워졌다.
@@ -80,13 +81,62 @@
 	1. HTTP URI = 자원 (Resource)
 	2. HTTP Method = 행위
 	3. MIME Type = 표현 방식
-	4. 예시
-```html
+```  javascript
 	GET /100 HTTP/1.1
-	Host : www.naver.com
+	Host : www.naver.com 
 ```
+- 요청 메시지의 예시 (REST 방식을 이용한 Request 예제)
 	- 위와 같은 Request 메시지가 있으면 URI 자원은 "/100"이고, HTTP Method는 "GET"이다.
 	- MIME 타입은 보통 Response HTTP header 메시지에 Content-type으로 쓰인다.
 	- 즉, www.naver.com 서버에 /100 이라는 자원을 GET(조회)하고 싶다는 요청으로 해성 가능하다.
+```  javascript
+	HTTP/1.1 200 OK
+	Content-Type : application/json-patch+json
 	
+	[{"title" : "helloworld"}]
+```
+- 응답 메시지의 예시
+	- 이런 Response가 왔다고 가정했을 때
+	- Content-Type을 보고 클라이언트는 IANA라는 타입들의 명세를 모아놓은 사이트에 방문해
+	- application/json-patch+json 이라는 타입의 명세를 확인하고 아래 Body의 내용이 json타입임을 알 수 있는 것
+- 제약 조건의 의미
+	1. Client/Server 방식
+	2. Stateless : 각 요청에 클라이언트의 context가 서버에 저장되어서는 안된다.
+		- 즉, HTTP Sesstion과 같은 컨텍스트 저장소에 상태 정보를 저장하지 않는다.
+		- 상태 정보를 저장하지 않으면 각 API 서버는 들어오는 요청만을 들어오는 메시지로만 처리
+		- 세션과 같은 컨텍스트 정보를 신경쓸 필요가 없기 때문에 구현이 단순해진다.
+	3. Cacheable : 클라이언트는 응답을 캐싱할 수 있어야 한다.
+	4. Layered System : 클라이언트는 서버에 직접 연결되었는지 미들웨어에 연결되었는지 알 필요가 없어야 한다.
+	5. Code on demand (option) : 서버는 코드를 클라이언트에게 보내서 실행하게 할 수 있어야 한다.
+	6. **Uniform Interface** : RESTful 하기 위해서 가장 잘 지켜져야 하는 요소
+		- 자원은 유일하게 식별가능해야 한다.
+		- HTTP Method로 표현을 담아야 한다.
+		- 메시지는 스스로 설명(self-descrptive)해야 한다.
+		- 하이퍼링크를 통해서 애플리케이션의 상태가 전이(HATEOAS)되어야 한다.
+			- HATEOAS : Link라는 HTTP 헤더에 다른 리소스를 가리켜 주는 값을 넣는 방법으로 해결
+			- Spring에는 spring-data-rest, spring hateoas, spring-rest-doc으로
+			- 두 제약을 지키기위해 사용할 수 있는 라이브러리가 존재
+```  javascript
+	HTTP/1.1 200 OK
+	Content-Type : application/json
+	Link : </Spring/1>; rel="previous"
 	
+	[{"title" : "helloworld"}]
+```
+- HATEOAS의 예시
+	- 위와 같이 해당 정보에서 다른 정보로 넘어갈 수 있는 하이퍼링크를 명시해주면 된다.
+- REST API의 장단점
+	- 장점
+		- 메시지를 단순하게 표현할 수 있고 WEB의 원칙인 확장에 유연하다. (멀티플랫폼)
+		- 별도의 장비나 프로토콜이 필요없이 기존의 HTTP 인프라를 이용할 수 있다. (사용이 용이함)
+		- Server, Client를 완전히 독립적으로 구현할 수 있다.
+	- 단점
+		- 표준, 스키마가 없다. 결국 API 문서가 만들어지는 이유이다.
+		- 행위에 대한 메소드가 제한적이다. (GET, POST, PUT, DELETE, HEAD, ... )
+- URI와 URL의 차이점
+	- URI : Uniform Resource Identifier
+		- REST에서는 모든 것을 리소스로 표현한다. 그리고 그 자원은 유일한 것을 나타낸다. (Identifier, 식별자)
+		- 파일 뿐만 아니라 여러 자원들 까지도 포함하는 개념
+	- URL : Uniform Resource Locator
+		- 반면에 과거의 웹에서는 html같은 파일들을 주고 받았기 때문에 Identifier의 개념이 따로 필요없었다.
+		- 파일의 위치를 가리키는 Locator를 썼다.
