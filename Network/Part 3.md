@@ -71,7 +71,22 @@
 - REST가 필요한 이유
 	1. 분산 시스템의 도입
 	- 거대한 애플리케이션을 모듈, 기능별로 분리하기 쉬워졌다.
-	- RESTful API를 서비스하기만 하면 어떤 다른 module 또는 Application들이라도 RESTful API를 통해 상호 간에 통신을 할 수 있다.
+	- RESTful API를 서비스하기만 하면 다른 module 또는 Application들이라도 RESTful API를 통해 상호 간에 통신 가능
 	2. 멀티 플랫폼 클라이언트 지원
 	- WEB을 위한 HTML 및 이미지 등을 보내던 것과 달리 데이터만 보내면 여러 클라이언트에서 데이터를 적절히 보여줘야 한다.
-	- 
+	- RESTful API를 사용하면서 데이터만 주고 받기 때문에 여러 클라이언트가 자유롭고 부담없이 데이터 이용 가능
+	- 서버도 요청한 데이터만 깔끔하게 보내주면되기 때문에 가벼워지고 유지보수성도 좋아졌다.
+- REST의 구성 요소
+	1. HTTP URI = 자원 (Resource)
+	2. HTTP Method = 행위
+	3. MIME Type = 표현 방식
+	4. 예시
+```html
+	GET /100 HTTP/1.1
+	Host : www.naver.com
+```
+	- 위와 같은 Request 메시지가 있으면 URI 자원은 "/100"이고, HTTP Method는 "GET"이다.
+	- MIME 타입은 보통 Response HTTP header 메시지에 Content-type으로 쓰인다.
+	- 즉, www.naver.com 서버에 /100 이라는 자원을 GET(조회)하고 싶다는 요청으로 해성 가능하다.
+	
+	
