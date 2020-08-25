@@ -29,6 +29,19 @@
 	- 분산된 DB를 이용해 각 조직들은 자신들의 도메인 정보를 관리하는 DNS 서버를 자체적으로 운영
 	- 이 수 많은 도메인의 **DNS 서버들이 상호 연동되어 있는 Domain Name Space를 구성**하게 된다.
 <br></br>
+- DNS의 동작 원리
+	![DNS 프로세스](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F269b0a50-1b13-482f-921c-254237b3c8e5%2FUntitled.png?table=block&id=3fb206b4-46ba-4592-8ec9-951ab5c30b09&width=3140&userId=&cache=v2)
+1. 웹브라우저에 `www.naver.com`을 입력하면 먼저 `Local DNS`에게   
+www.naver.com이라는 hostname에 대한 IP 주소를 질의하여 Local DNS에 없으면   
+다른 DNS name 서버 정보를 받는다. `(Root DNS 정보)`
+2. `Root DNS` 서버에 www.naver.com 질의
+3. Root DNS 서버로부터 `com 도메인`을 관리하는 `TLD(Top-Level Domina)` 서버 정보를 전달 받는다.
+4. `TLD` 서버에 www.naver.com 질의
+5. TLD에서 `www.naver.com`을 관리하는 DNS 정보를 전달한다.
+6. "www.naver.com" 도메인을 관리하는 DNS 서버에 "www.naver.com" 호스트 네임에 대한 IP 주소 질의
+7. `Local DNS` 서버에게 www.naver.com에 대한 IP 주소는 `222.122.195.6이라고 응답`
+8. Local DNS는 www.naver.com에 대한 IP 주소를 캐싱하고 IP 주소 정보를 전달
+<br></br>
 - DNS의 구성 요소   
     ![DNS_img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3k159%2Fbtqzb8L6Qnu%2FJk5Z1RzHNuvqwZMcMGEwSk%2Fimg.png)
 	1. 도메인 네임 스페이스 (Domain Name Space) : DNS가 저장, 관리하는 계층적 구조
@@ -184,3 +197,7 @@ http 프로토콜로 통신하는 경우 연결이 유지되지 않기 때문에
 ![웹소켓](http://www.secmem.org/assets/images/websocket-socketio/websocket.png)
 	- 웹 서버와 웹 브라우저간 실시간 양방향 통신환경을 제공해주는 실시간 통신 기술
 	- 양방향으로 원할 때 요청을 보낼 수 있으며 stateless한 HTTP에 비해 오버헤드가 적어서 유용
+	
+<br>
+
+### Socket.io와WebSocket
