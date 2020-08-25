@@ -85,11 +85,15 @@
 - HTTP 헤더 내 일반 헤더(General Header) 항목
     - 요청 및 응답 메시지 모두에서 사용 가능한 일반 목적의(기본적인) 헤더 항목
     - 주요 항목들
-        - **Date**: HTTP 메시지를 생성한 일시 (RFC 1123에서 규정)
+        - **Date**: HTTP 메시지가 만들어진 시각. 자동으로 만들어진다. (RFC 1123에서 규정)
             - `Date: Sat, 2 Oct 2018 02:00:12 GMT`
         - **Connection**: 클라이언트와 서버 간 연결에 대한 옵션 설정(다소 모호한 복잡성 있음)
+            - 일반적으로 HTTP/1.1을 사용하며 Connection은 기본적으로 keep-alive로 되어있다.
             - `Connection: close` => 현재 HTTP 메시지 직후에 TCP 접속을 끊는다는 것을 알림
             - `Connection: Keep-Alive` => 현재 TCP 커넥션을 유지
+        - **Content-Length**
+            - 요청과 응답 메시지의 본문 크기를 바이트 단위로 표시해준다. 메시지 크기에 따라 자동으로 만들어진다.
+            - Content-Length: 88052
         - **Cache-Control** 
         - **Pragma**
         - **Trailer**
@@ -128,15 +132,20 @@
     - 요청 헤더는 HTTP 요청 메시지 내에서만 나타나며 가장 방대하다.
     - 주요 항목들
         - **Host**: 요청하는 호스트에 대한 호스트명 및 포트번호 (***필수***)
+            - 서버의 도메인 네임. Host 헤더는 반드시 하나가 존재해야 한다.
             - Host 필드에 도메인명 및 호스트명 모두를 포함한 전체 URI(FQDN) 지정 필요
             - 이에 따라 동일 IP 주소를 갖는 단일 서버에 여러 사이트가 구축 가능
         - **User-Agent**: 클라이언트 소프트웨어(브라우저, OS) 명칭 및 버전 정보
+            - 현재 사용자가 어떤 클라이언트(운영체제, 앱, 브라우저 등)를 통해 요청을 보냈는지 알 수 있다.
+            - User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
         - **From**: 클라이언트 사용자 메일 주소 
             - 주로 검색엔진 웹 로봇의 연락처 메일 주소를 나타냄
             - 때로는, 이 연락처 메일 주소를 User-Agent 항목에 두는 경우도 있음
         - **Cookie**: 서버에 의해 Set-Cookie로 클라이언트에게 설정된 쿠키 정보
+            - 웹서버가 클라이언트에 쿠키를 저장해 놓았다면 해당 쿠키의 정보를 이름-값 쌍으로 웹서버에 전송한다.
         - **Referer**: 바로 직전에 머물었던 웹 링크 주소
         - **If-Modified-Since**: 제시한 일시 이후로만 변경된 리소스를 취득 요청
+            - 만일 요청한 파일이 이 필드에 지정된 시간 이후로 변경되지 않았다면, 서버로부터 데이터를 전송받지 않는다.
         - **Authorization**: 인증 토큰(JWT/Bearer 토큰)을 서버로 보낼 때 사용하는 헤더
             - 토큰의 종류(Basic, Bearer 등) + 실제 토큰 문자를 전송
         - **Origin**
@@ -177,6 +186,7 @@
 > - [http://www.ktword.co.kr/abbr_view.php?nav=&m_temp1=5905&id=902](http://www.ktword.co.kr/abbr_view.php?nav=&m_temp1=5905&id=902)
 > - [https://gmlwjd9405.github.io/2019/01/28/http-header-types.html](https://gmlwjd9405.github.io/2019/01/28/http-header-types.html)
 > - [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+> - [https://goddaehee.tistory.com/169](https://goddaehee.tistory.com/169)
 
 ### CORS란 
 - CORS(Cross Origin Resource Sharing)란 
