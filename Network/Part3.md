@@ -193,10 +193,51 @@
 http 프로토콜로 통신하는 경우 연결이 유지되지 않기 때문에 먼저 요청을 보내는 것이 불가능하기 떄문에  
 이러한 문제를 해결하기 위해 양방향 통신의 개념이 고안이 되었다.
 
-- Websocket
+- Websocket의 개념
 ![웹소켓](http://www.secmem.org/assets/images/websocket-socketio/websocket.png)
-	- 웹 서버와 웹 브라우저간 실시간 양방향 통신환경을 제공해주는 실시간 통신 기술
+	- TCP 프로토콜에서 양방향 커뮤니케이션을 가능하게 하는 통신 프로토콜
+	- HTTP의 프록시를 지원할 수 있게 하기 위해서 HTTP 포트 80, 443에서 동작하도록 설계 때문에 HTTP와 호환 가능
+	- 웹 소켓을 사용하기 위해서는 HTTP Upgrade header를 사용해   
+	  HTTP 프로토콜에서 웹 소켓 프로토콜로 전환 ( = 웹 소켓 핸드 쉐이크)
+	
+- Websocket의 특징
 	- 양방향으로 원할 때 요청을 보낼 수 있으며 stateless한 HTTP에 비해 오버헤드가 적어서 유용
+	- 클라이언트가 먼저 서버에게 요청하지 않고, 서버가 클라이언트에게 contents를 보내고 이 연결이 계속 열린채로 유지됨
+- Websocket의 간단한 예제
+```JAVA
+if ('WebSocket' in window) {  
+    var oSocket = new WebSocket(“ws://localhost:80”);
+
+    oSocket.onmessage = function (e) { 
+        console.log(e.data); 
+    };
+
+    oSocket.onopen = function (e) {
+        console.log(“open”);
+    };
+
+    oSocket.onclose = function (e) {
+        console.log(“close”);
+    };
+
+    oSocket.send(“message”);
+    oSocket.close();
+}
+```
+1. ws:// : WebSocket 프로토콜을 나타내며 URI 스키마를 사용한다. 암호화 소켓은 https:// 처럼 wss://를 사용
+2. 먼저 new WebSocket() 메서드로 웹서버와 연결한다.
+3. 생성된 WebSocket 인스턴스를 이용하여 소켓에 연결할 때(onopen), 소켓 연결을 종료할 때(onclose),   
+	메시지를 받았을 때(onmessage) 등의 이벤트를 각각 정의할 수 있다.
+4. 서버에 메시지를 보내고 싶을 때에는 send() 메서드를 이용한다.
+<br></br>
+- Socket.io의 개념
+	- JavaScript를 이용하여 브라우저 종류에 상관없이 실시간 웹을 구현할 수 있도록 한 기술
+	- 브라우저와 웹 서버의 종류와 버전을 파악해 가장 적합한 기술을 선택해 실시간 웹을 구현할 수 있도록 해주는 기술
+		- 예를 들어 브라우저에 Flash Socket을 지언하는 Flash Plugin v10.0.0 이상이 있으면   
+			FlashSocket을 이용 없으면 Ajax Long Polling 방식을 이용
+	- Web socket과 달리 node.js의 모듈이다.
+- Socket.io를 활용한 다양한 예제
+	- https://socket.io/
 	
 <br>
 
@@ -206,3 +247,25 @@ http 프로토콜로 통신하는 경우 연결이 유지되지 않기 때문에
 	- 모든 계층에서 우리가 전송하는 데이터 자체는 동일하지만   
 	  각 레이어를 거치면서 헤더 정보가 추가되며 이름이 달라진다.
 ![프로토콜 링크](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/OSI_Model_v1.svg/870px-OSI_Model_v1.svg.png)
+
+> 쉽게 생각하면 사용자는 Data라 부르고,   
+TCP는 Segment라고 부르고, IP는 Packet이라고 부르고,   
+데이터 링크는 Frame, 컴퓨터 하드웨어는 그것을 Bit로 연산하고 다루게 되는 것
+
+1. 세그먼트 (전송 계층)
+상위 계층에서 데이터를 전달받은 전송계층에서는 아래의 정보들을 추가해 그룹화 한다. 이때부터는 데이터가 아닌 세그먼트라 불림
+	- 발신지 포트 : 발싱하는 application의 포트
+	- 목적지 포트 : 수신해야 할 application의 포트
+	- 순서 번호 : 순차적 전송할 경우 순서를 붙이며, 순서가 어긋나면 목적지 프로토콜이 이를 바로 잡는다.
+	- 오류검출코드 : 발신지와 목적지 프로토콜은 세그먼트를 연산하여 오류 검출 코드를 각각 만든다. 
+> 만약 발신지에서 전송한 세그먼트에 포함된 오류 검출 코드와 목적지에서 만든 오류 검출 코드가 다르다면   
+전송되는 과정에서 오류가 발생한 것이다. 이 경우, 수신측은 그 세그먼트를 폐기하고 복구 절차를 밟는다.   
+오류검출코드는 체크섬, 프레임 체크 시퀀스라고도 부른다.
+
+2. 패킷 (네트워크 계층)
+전송 계층으로부터 전달받은 세그먼트는 네트워크 계층의 정보를 포함해 패킷이라고 불리게 된다.
+	- 발신지 컴퓨터 주소(Destination IP) : 패킷의 발신자 주소
+	- 목적지 컴퓨터 주소(Source IP) : 패킷의 수신자 주소
+	- 서비스 요청 : 네트워크 접속 프로토콜은 우선 순위와 같은 서브 네트워크의 사용을 요청할 수 있다.
+
+3. 데이터 그램
