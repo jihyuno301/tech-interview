@@ -17,7 +17,7 @@
   * [Q. TCP의 연결 설정 과정(3단계)과 연결 종료 과정(4단계)이 단계가 차이나는 이유?]()
   * [Q. 만약 Server에서 FIN 플래그를 전송하기 전에 전송한 패킷이 Routing 지연이나 패킷 유실로 인한 재전송 등으로 인해 FIN 패킷보다 늦게 도착하는 상황이 발생하면 어떻게 될까?]()
   * [Q. 초기 Sequence Number인 ISN을 0부터 시작하지 않고 난수를 생성해서 설정하는 이유?]()
-* :arrow_forward: [HTTP와 HTTPS](/Network/Part 2.md)
+* :arrow_forward: [HTTP와 HTTPS](./Network/Part2.md)
 * [HTTP 요청/응답 헤더]()
 * [CORS란]()
 * [GET 메서드와 POST 메서드]()
