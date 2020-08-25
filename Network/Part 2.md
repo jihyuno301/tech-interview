@@ -196,13 +196,16 @@
 <img src="./img/CORS.png" width="70%" height="70%">
 
 - CORS(Cross Origin Resource Sharing)란 
-    - 도메인 또는 포트가 다른 서버의 자원을 요청하는 매커니즘을 말한다.
-    - 웹 서버에게 보안 cross-domain 데이터 전송을 활성화하는 cross-domain 접근 제어권을 부여한다.
+    - 추가 HTTP 헤더를 사용하여 브라우저가 실행 중인 웹 애플리케이션에 선택된 액세스 권한을 부여하도록 하는 메커니즘
+    - 다른 출처(도메인, 프로토콜 또는 포트)의 자원 및 리소스를 요청할 때 cross-origin HTTP 요청을 실행한다.
 - 배경
     - 처음 전송되는 리소스의 도메인과 다른 도메인으로부터 리소스가 요청될 경우 해당 리소스는 cross-origin HTTP 요청에 의해 요청된다.
     - 보안 상의 이유로, 브라우저들은 스크립트 내에서 초기화되는 cross-origin HTTP 요청을 제한한다.
         - 예를 들면, XMLHttpRequest는 same-origin 정책을 따르기에 XMLHttpRequest을 사용하는 웹 애플리케이션은 자신과 동일한 도메인으로 HTTP 요청을 보내는 것만 가능했다.
         - 웹 애플리케이션을 개선시키기 위해, 개발자들은 브라우저 벤더사들에게 XMLHttpRequest가 cross-domain 요청을 할 수 있도록 요청했고 이에 따라 CORS가 생겼다.
+
+<img src="./img/CORS2.png" width="70%" height="70%">
+
 - 과정
     - CORS 요청 시에는 미리 OPTIONS 주소로 서버가 CORS를 허용하는지 물어본다.
     - 이때 Access-Control-Request-Method로 실제로 보내고자 하는 메서드를 알리고,
