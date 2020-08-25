@@ -203,13 +203,13 @@
     - 예를 들어, XMLHttpRequest and the Fetch API는 same-origin 정책을 따랐다. 
     - 다른 API의 응답에 올바른 CORS 헤더가 포함되어 있지 않으면 해당 API를 사용하는 웹 응용 프로그램은 동일한 출처의 리소스(같은 도메인, 같은 포트)만 요청할 수 있다. 
     - 서버의 기본 설정(프레임워크 및 언어다마 다를 수 있다.)에서 CORS_ORIGIN_ALLOW_ALL를 활성화했을 경우 CORS의 요청을 허용하여 응답한다. 
-    - CORS의 최종 주체는 서버입니다. 브라우저에서는 언제든지 CORS를 허용을 할 수 있다. 
+    - CORS의 최종 주체는 서버이다. 브라우저에서는 언제든지 CORS를 허용을 할 수 있다. 
     - 브라우저의 옵션(크롬의 경우 chrome://flags/), CORS 확장프로그램은 해당 옵션을 수정 및 요청 시 헤더에 "Access-Control-Allow-Origin"을 추가하는 역할을 한다. 
-    - 서버에서 CORS의 설정을 허용하지 않았다면 JSONP와 같은 우회를 사용기도 했다.(단 GET통신밖에 할 수 없다.)
+    - 서버에서 CORS의 설정을 허용하지 않았다면 JSONP와 같은 우회를 사용하기도 했다.(단 GET통신만 가능)
 
 <img src="./img/CORS2.png" width="70%" height="70%">
 
-- 과정
+- 동작 방법
     - CORS 메커니즘은 브라우저와 서버 간의 안전한 교차 출처 요청 및 데이터 전송을 지원한다.
     - HTTP OPTIONS 요청 메서드를 이용해 서버로부터 지원 중인 메서드들을 내려 받은 뒤, 서버에서 "approval"(승인) 시에 실제 HTTP 요청 메서드를 이용해 실제 요청을 전송하는 것을 말한다. 
     - 서버들은 또한 클라이언트에게 (Cookie와 HTTP Authentication 데이터를 포함하는) "credentials"가 요청과 함께 전송되어야 하는지를 알려줄 수도 있다.
