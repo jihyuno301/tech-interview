@@ -4,7 +4,7 @@
 
 ### :book: Contents
 - [DNS](#DNS란)
-- [REST와 RESTful의 개념](#REST와RESTful의개념)
+- [REST와 RESTful의 개념](#REST/RESTful)
 - [소켓(Socket)이란](#소켓(Socket)이란)
 - [Socket.io와 WebSocket의 차이]
 - [Frame, Packet, Segment, Datagram]
@@ -61,7 +61,7 @@
 
 <br>
 
-### REST와RESTful의개념
+### REST/RESTful
 [!REST](https://gmlwjd9405.github.io/images/network/rest.png)
 - REST이란?
 	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = **제약 조건의 집합**)
