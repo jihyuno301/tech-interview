@@ -16,7 +16,7 @@
 <br>
 
 ### DNS란?
-<img src = "./img/dns3.png" width = 400px height = 200px></img>
+<img src = "./img/dns3.png" width = 800px height = 500px></img>
 - DNS의 등장 배경
 	- TCP/IP 프로토콜을 사용하는 네트워크 안에서는 IP주소를 알고 있어야 상대방 장비와 연결이 가능하다.
 	- 즉, 네트워크에서 도메인이나 호스트 이름을 숫자로 된 IP 주소로 해석해 주기 위해 TCP/IP Network Service인 DNS 등장
