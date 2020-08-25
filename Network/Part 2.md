@@ -99,6 +99,7 @@
             - Cache-Control 지시문은 응답을 캐시할 수 있는 사용자, 해당 조건 및 기간을 제어한다.
             - `Cache-Control: public, max-age=3600`
         - **Pragma**
+            - 요청-응답 체인에 다양한 영향을 줄 수 있는 구현관련 헤더이다.
         - **Trailer**
 -  HTTP 헤더 내 엔터티/개체 헤더 (Entity Header) 항목
     - 요청 및 응답 메시지 모두에서 사용 가능한 Entity(콘텐츠, 본문, 리소스 등)에 대한 설명 헤더 
