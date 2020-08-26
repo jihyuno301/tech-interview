@@ -3,7 +3,7 @@
 * [OSI 7계층](#OSI-7계층)
 * [TCP/IP의 개념](#TCPIP의-개념)
 * [TCP와 UDP](#TCP와-UDP)
-* [TCP(흐름제어/혼잡제어)](#TCP(흐름제어/혼잡제어))
+* [TCP(흐름제어/혼잡제어)](#TCP흐름제어-혼잡제어)
 * [TCP와 UDP의 헤더 분석](#TCP와-UDP의-헤더-분석)
 * [TCP의 3-way-handshake와 4-way-handshake](#TCP의-3-way-handshake와-4-way-handshake)
 
@@ -175,7 +175,7 @@ UDP : 비신뢰성, 비연결성, 실시간
   * [데이터그램 패킷 교환 vs 가상회선 패킷 교환](https://gotwo.tistory.com/107)
   * [데이터그램 & 가상회선(Virtual Circuit)](https://security-nanglam.tistory.com/179)
 
-### TCP(흐름제어/혼잡제어)
+### TCP흐름제어 혼잡제어
 - TCP 통신이란?
   - 네트워크 통신에서 신뢰적인 연결방식
   - TCP는 기본적으로 unreliable network에서, reliable network를 보장할 수 있도록 하는 프로토콜
