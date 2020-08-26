@@ -26,4 +26,4 @@
 * [REST와 RESTful의 개념](./Network/Part3.md#REST와-RESTful)
 * [소켓(Socket)이란](./Network/Part3.md#Socket이란)
 * [Socket.io와 WebSocket의 차이](./Network/Part3.md#양방향-통신)
-* [Frame, Packet, Segment, Datagram](./Network/Part3.md(#Frame-Packet-Segment-Datagram)
+* [Frame, Packet, Segment, Datagram](./Network/Part3.md#Frame-Packet-Segment-Datagram)
