@@ -4,9 +4,9 @@
 
 ### :book: Contents
 - [DNS](#DNS란)
-- [REST와 RESTful의 개념](#REST/RESTful)
+- [REST와 RESTful의 개념](#REST와-RESTful)
 - [소켓(Socket)이란](#소켓(Socket)이란)
-- [Socket.io와 WebSocket의 차이](#Socket.io와WebSocket)
+- [Socket.io와 WebSocket의 차이](#Socket.io와-WebSocket)
 - [Frame, Packet, Segment, Datagram](#Frame,Packet,Segment,Datagram)
 
 <br>
@@ -80,7 +80,7 @@
 
 <br>
 
-### REST/RESTful
+### REST와-RESTful
 [!REST](https://gmlwjd9405.github.io/images/network/rest.png)
 - REST이란?
 	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = **제약 조건의 집합**)
@@ -186,7 +186,7 @@
 
 <br>
 
-### Socket.io와WebSocket
+### Socket.io와-WebSocket
 - 웹 브라우저에서 양방향 통신
 > http 프로토콜은 요청/응답 패러다임이기에 클라이언트에서 요청을 보내야만 그에 대한 응답을 받는다.  
 그러나, 클라이언트가 요청을 보내지 않아도 서버에서 클라이언트쪽으로 데이터를 보내야 하는 경우가 생기게 된다.  
