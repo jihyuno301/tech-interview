@@ -5,9 +5,9 @@
 ### :book: Contents
 - [DNS](#DNS란)
 - [REST와 RESTful의 개념](#REST와-RESTful)
-- [소켓(Socket)이란](#소켓(Socket)이란)
+- [소켓(Socket)이란](#Socket이란)
 - [Socket.io와 WebSocket의 차이](#Socket.io와-WebSocket)
-- [Frame, Packet, Segment, Datagram](#Frame,Packet,Segment,Datagram)
+- [Frame, Packet, Segment, Datagram](#Frame-Packet-Segment-Datagram)
 
 <br>
 
@@ -164,7 +164,7 @@
 
 <br>
 
-### 소켓(Socket)이란
+### Socket이란
 - 소켓(Socket)의 개념
 	- 네트워크상에서 동작하는 프로그램 간 통신의 종착점(Endpoint)
 	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자
@@ -241,7 +241,7 @@ if ('WebSocket' in window) {
 	
 <br>
 
-### Frame,Packet,Segment,Datagram
+### Frame-Packet-Segment-Datagram
 - 프로토콜 데이터 단위 (PDU / Protocol Data Unit)
 	- 데이터 통신에서 상위 계층이 전달한 데이터에 붙이는 제어정보
 	- 모든 계층에서 우리가 전송하는 데이터 자체는 동일하지만   
