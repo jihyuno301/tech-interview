@@ -6,7 +6,7 @@
 - [DNS](#DNS란)
 - [REST와 RESTful의 개념](#REST와-RESTful)
 - [소켓(Socket)이란](#Socket이란)
-- [Socket.io와 WebSocket의 차이](#Socket.io와-WebSocket)
+- [Socket.io와 WebSocket의 차이](#양방향-통신)
 - [Frame, Packet, Segment, Datagram](#Frame-Packet-Segment-Datagram)
 
 <br>
@@ -186,8 +186,8 @@
 
 <br>
 
-### Socket.io와-WebSocket
-- 웹 브라우저에서 양방향 통신
+### 양방향-통신
+- 웹 브라우저에서 양방향 통신 (Socket.io와 WebSocket)
 > http 프로토콜은 요청/응답 패러다임이기에 클라이언트에서 요청을 보내야만 그에 대한 응답을 받는다.  
 그러나, 클라이언트가 요청을 보내지 않아도 서버에서 클라이언트쪽으로 데이터를 보내야 하는 경우가 생기게 된다.  
 http 프로토콜로 통신하는 경우 연결이 유지되지 않기 때문에 먼저 요청을 보내는 것이 불가능하기 떄문에  
