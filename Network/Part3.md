@@ -81,7 +81,8 @@
 <br>
 
 ### REST와-RESTful
-[!REST](https://gmlwjd9405.github.io/images/network/rest.png)
+[REST](./img/rest.png)
+
 - REST이란?
 	- 분산 시스템 설계를 위한 **아키텍처 스타일** (아키텍처 = **제약 조건의 집합**)
 - RESTfUL이란?
@@ -167,8 +168,12 @@
 ### Socket이란
 - 소켓(Socket)의 개념
 	- 네트워크상에서 동작하는 프로그램 간 통신의 종착점(Endpoint)
-	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자
-	- => 서로 다른 프로세스끼리 데이터 전달이 가능
+	- 두 프로그램이 네트워크를 통해 서로 통신을 할 수 있도록 양쪽에 생성되는 링크의 단자   
+	= 서로 다른 프로세스끼리 데이터 전달이 가능
+- 소켓(Socket)과 포트(Port)의 차이
+	- 포트(Port) : 네트워크를 통해 데이터를 주고 받는 프로세스를 식별하기 위해 호스트 내부적으로 프로세스가 할당받는 고유한 값
+	- 소켓(Socket) : 프로세스가 네트워크를 통해서 데이터를 주고 받으려면 반드시 열어야 하는 창구   
+	* 보내는 쪽도 받는 쪽도 동일하게 소켓을 열어야 한다.
 - 소켓 통신의 Workflow  
 ![워크플로우](https://t1.daumcdn.net/cfile/tistory/993EAD4E5C66371C2B)
 	- **서버 (Server)**
@@ -239,6 +244,10 @@ if ('WebSocket' in window) {
 - Socket.io를 활용한 다양한 예제
 	- https://socket.io/
 	
+<br></br>
+> - [https://velog.io/@imacoolgirlyo/web-socket과-socket.io](https://velog.io/@imacoolgirlyo/web-socket과-socket.io)
+> - [https://d2.naver.com/helloworld/1336](https://d2.naver.com/helloworld/1336)
+
 <br>
 
 ### Frame-Packet-Segment-Datagram
@@ -256,23 +265,37 @@ if ('WebSocket' in window) {
 TCP는 Segment라고 부르고, IP는 Packet이라고 부르고,   
 데이터 링크는 Frame, 컴퓨터 하드웨어는 그것을 Bit로 연산하고 다루게 되는 것
 
-1. **세그먼트 (전송 계층)**
+1. **데이터 그램**
+- 사용자의 순수한 message를 다르게 부르는 말
+
+2. **세그먼트 (전송 계층)**
 - 상위 계층에서 데이터를 전달받은 전송계층에서는 아래의 정보들을 추가해 그룹화 한다. 이때부터는 데이터가 아닌 세그먼트라 불림
 	- 발신지 포트 : 발싱하는 application의 포트
 	- 목적지 포트 : 수신해야 할 application의 포트
 	- 순서 번호 : 순차적 전송할 경우 순서를 붙이며, 순서가 어긋나면 목적지 프로토콜이 이를 바로 잡는다.
-	- 오류검출코드 : 발신지와 목적지 프로토콜은 세그먼트를 연산하여 오류 검출 코드를 각각 만든다. 
+	- 오류검출코드 : 발신지와 목적지 프로토콜은 세그먼트를 연산하여 오류 검출 코드를 각각 만든다.   
 > 만약 발신지에서 전송한 세그먼트에 포함된 오류 검출 코드와 목적지에서 만든 오류 검출 코드가 다르다면   
 전송되는 과정에서 오류가 발생한 것이다. 이 경우, 수신측은 그 세그먼트를 폐기하고 복구 절차를 밟는다.   
 오류검출코드는 체크섬, 프레임 체크 시퀀스라고도 부른다.
 
-2. **패킷 (네트워크 계층)**
+3. **패킷 (네트워크 계층)**
 - 전송 계층으로부터 전달받은 세그먼트는 네트워크 계층의 정보를 포함해 패킷이라고 불리게 된다.
 	- 발신지 컴퓨터 주소(Destination IP) : 패킷의 발신자 주소
 	- 목적지 컴퓨터 주소(Source IP) : 패킷의 수신자 주소
-	- 서비스 요청 : 네트워크 접속 프로토콜은 우선 순위와 같은 서브 네트워크의 사용을 요청할 수 있다.
-	
-3. **데이터 그램**
-- 사용자의 순수한 message를 다르게 부르는 말
+	- 서비스 요청 : 네트워크 접속 프로토콜은 우선 순위와 같은 서브 네트워크의 사용을 요청할 수 있다.   
 
-4. 
+> **전반적인 네트워킹에서의 packet의 의미**  
+Circuit switching vs Packet switching의 개념으로 회선 교환에 대비되는 모든 데이터 교환을 일컬어 packet switching이라고 한다.   
+ATM cell ATM cell switching은 물론이고, Ethernet frame switching, Frame Relay frame switching, 등등   
+회선교환이 아닌 모든 데이터 단위가 packet의 범주에 들어간다.
+
+4. **프레임 (데이터 링크 계층)**
+- 최종적으로 데이터 전송을 하기 전 패킷헤더에 Mac Address와 CRC를 위한   
+  Trailer(데이터가 정확하게 수신 할 수 있는가에 대한 무결성을 검증하기 위한 FCS)를 붙인 단위
+	- CRC : 순환 중복 검사 (데이터를 전송할 때 전송된 데이터에 오류가 있는지 확인하기 위한 체크값을 결정하는 방식)
+	- FCS : 프레임 검사 시퀀스 (Frame Check Sequence)
+		
+<br></br>
+> - [https://velog.io/@hidaehyunlee/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-%ED%8C%A8%ED%82%B7-%ED%97%B7%EA%B0%88%EB%A6%B4-%EB%95%90-PDU%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90](https://velog.io/@imacoolgirlyo/web-socket과-socket.io)
+
+<br>
