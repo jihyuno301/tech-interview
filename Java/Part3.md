@@ -1,6 +1,6 @@
 # 2. Java - Part3
 
-<br>
+<br></br>
 
 ### :book: Contents
 - [java의 가비지 컬렉션(Garbage Collection) 처리 방법](#java의-가비지-컬렉션-처리-방법)
