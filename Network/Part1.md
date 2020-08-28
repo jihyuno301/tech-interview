@@ -11,12 +11,17 @@
 ---
 
 ### OSI 7계층
-![OSI 7계층](https://camo.githubusercontent.com/90fac88d1f73e7e3414cb03d3ae899e883eb409f/68747470733a2f2f626c6f67732e626d632e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f30362f6f73692d6d6f64656c2d372d6c61796572732d3131343078313435312e706e67)
 
+**OSI(Open Systems Interconnection Reference Model)란**
 
+![OSI 7계층](https://github.com/WeareSoft/tech-interview/raw/master/contents/images/osi-7-layer.png)
+
+* 국제표준화기구(ISO)에서 개발한 모델로, **컴퓨터 네트워크 프로토콜 디자인과 통신을 계층으로 나누어 설명**한 것이다.
+* 이 모델은 프로토콜을 기능별로 나눈 것이다.
+* 각 계층은 하위 계층의 기능만을 이용하고, 상위 계층에게 기능을 제공한다.
+* 일반적으로 하위 계층들은 하드웨어로, 상위 계층들은 소프트웨어로 구현된다. 
 
 **7계층은 왜 나눌까?**
-
 
 통신이 일어나는 과정을 단계별로 알 수 있고, 특정한 곳에 이상이 생기면 그 단계만 수정할 수 있기 때문이다.
 
