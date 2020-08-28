@@ -1,7 +1,5 @@
 # 2. Java - Part3
-
 <br></br>
-
 ### :book: Contents
 - [java의 가비지 컬렉션(Garbage Collection) 처리 방법](#java의-가비지-컬렉션-처리-방법)
 - [java 직렬화(Serialization)와 역직렬화(Deserialization)란 무엇인가]()
