@@ -290,7 +290,7 @@
   * 반환 형태: boolean type
     * 같은 내용이면 return true, 다른 내용이면 return false
 * "==" VS "equals()" 예시
-<img src="./img/Equals.jpg" width="70%" height="70%">
+<img src="./img/Equals.png" width="70%" height="70%">
 
 ~~~java
 public class Test {
