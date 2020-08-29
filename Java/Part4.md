@@ -52,8 +52,13 @@
 
 ---
 ### Java Collections Framework
-<img src="./images/java-collections-framework.png" width="70%" height="70%">
 
+<img src="./img/Collections.png" width="70%" height="70%">
+* 컬렉션 프레임워크(collection framework)란?
+    - 자바에서 컬렉션 프레임워크(collection framework)란 다수의 데이터를 쉽고 효과적으로 처리할 수 있는 표준화된 방법을 제공하는 클래스의 집합을 의미한다.
+    - 즉, 데이터를 저장하는 자료 구조와 데이터를 처리하는 알고리즘을 구조화하여 클래스로 구현해 놓은 것이다.
+    - 이러한 컬렉션 프레임워크는 자바의 인터페이스(interface)를 사용하여 구현된다.
+    
 * Map
     * 검색할 수 있는 인터페이스
     * 데이터를 삽입할 때 Key와 Value의 형태로 삽입되며, Key를 이용해서 Value를 얻을 수 있다.
