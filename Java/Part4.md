@@ -246,11 +246,28 @@
 
 ---
 ### 동기화와 비동기화의 차이
-* 동기화(Syncronous)
-* 비동기화(Asyncronous)
 
+- 동기화와 비동기화
+    - 동기화 방식은 한 자원에 대해 동시에 접근하는 것을 제한하는 방식이다.
+    - 다시말해서, 순서를 지키겠다는 말이다.
+    - 비동기화 방식은 한 자원에 대해 동시에 접근이 가능하다
+
+<img src="./img/Blocking.jpg" width="70%" height="70%">
+
+* 동기화(Syncronous)
+    - System Call이 끝날 때까지 다른 쓰레드의 접근을  막아버리는 것이다.
+    - 한마디로, nextLine()에서 입력을 받을 때까지 대기하는 것과 같다.
+    
+<img src="./img/NonBlocking.jpg" width="70%" height="70%">
+
+* 비동기화(Asyncronous)
+    - System Call이 왔든 말든 상관없이 계속 호출할 수 있다.
+    - Call Back 함수를 통해 결과를 가져온다!
+    * 동기화의 차이?
+        - 결과물을 가져오는 시점이 달라진다!
+        
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
-> - []()
+> - [https://huisam.tistory.com/entry/Synchronized-Asynchronized](https://huisam.tistory.com/entry/Synchronized-Asynchronized)
 
 ---
 ### java에서 ==와 equals()의 차이
@@ -273,7 +290,7 @@
   * 반환 형태: boolean type
     * 같은 내용이면 return true, 다른 내용이면 return false
 * "==" VS "equals()" 예시
-<img src="./images/equals-example.png" width="90%" height="90%">
+<img src="./img/Equals.jpg" width="70%" height="70%">
 
 ~~~java
 public class Test {
@@ -389,7 +406,5 @@ public class Test {
 
 ---
 
-## Reference
-> - []()
 
 ## :house: [Home](https://github.com/jihyuno301/tech-interview)
