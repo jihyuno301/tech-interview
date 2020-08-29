@@ -90,9 +90,13 @@
 
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
 > - [http://tcpschool.com/java/java_collectionFramework_concept](http://tcpschool.com/java/java_collectionFramework_concept)
+> - [https://postitforhooney.tistory.com](https://postitforhooney.tistory.com/entry/JavaCollection-Java-Collection-Framework%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4%EB%A5%BC-%ED%86%B5%ED%95%B4-Data-Structure-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 
 ---
 ### java Map 인터페이스 구현체의 종류
+* Map
+    * Key와 Value를 저장하며, Key는 중복될 수 없다. 키와 값은 모두 객체이다.
+    * 만약, 기존에 저장된 키와 동일한 키로 값을 저장하면 기존 값은 없어지고 새로운 값으로 대체 된다.
 * HashMap
     * Entry<K,V>의 배열로 저장되며, 배열의 index는 내부 해쉬 함수를 통해 계산된다.
     * 내부 hash값에 따라서 키순서가 정해지므로 특정 규칙없이 출력된다.
@@ -122,6 +126,10 @@
 
 ---
 ### java Set 인터페이스 구현체의 종류
+* Set
+    * Set Collection은 List처럼 Index로 저장 순서를 유지하지 않는다.
+    * 객체를 중복 저장할 수 없으며, 하나의 Null만 존재한다.
+
 * HashSet
   * 저장 순서를 유지하지 않는 데이터의 집합이다.
   * 해시 알고리즘(hash algorithm)을 사용하여 검색 속도가 매우 빠르다.
@@ -137,6 +145,10 @@
 
 ---
 ### java List 인터페이스 구현체의 종류
+* List
+    * 객체를 인덱스로 관리하기 때문에 객체를 저장하면 자동 인덱스가 부여되고 인덱스로 객체를 검색, 삭제할 수 있는 기능을 제공한다.
+    * List는 객체 자체를 저장하는 것이 아니라, 해당하는 인덱스에 객체의 주소를 참조하여 저장한다.
+
 * ArrayList
   * 단방향 포인터 구조로 각 데이터에 대한 인덱스를 가지고 있어 데이터 검색에 적합하다.
   * 데이터의 삽입, 삭제 시 해당 데이터 이후 모든 데이터가 복사되므로 삽입, 삭제가 빈번한 데이터에는 부적합하다.
