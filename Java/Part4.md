@@ -54,7 +54,8 @@
 ### Java Collections Framework
 
 <img src="./img/Collections.png" width="70%" height="70%">
-* 컬렉션 프레임워크(collection framework)란?
+
+- 컬렉션 프레임워크(collection framework)란?
     - 자바에서 컬렉션 프레임워크(collection framework)란 다수의 데이터를 쉽고 효과적으로 처리할 수 있는 표준화된 방법을 제공하는 클래스의 집합을 의미한다.
     - 즉, 데이터를 저장하는 자료 구조와 데이터를 처리하는 알고리즘을 구조화하여 클래스로 구현해 놓은 것이다.
     - 이러한 컬렉션 프레임워크는 자바의 인터페이스(interface)를 사용하여 구현된다.
@@ -71,16 +72,24 @@
         * 순서의 의미가 없다.
         * 데이터를 중복해서 포함할 수 없다.
 * Collections Framework 선택 과정
-  1. Map과 Collection 인터페이스 중 선택
-    1-1. Collection 선택 시 사용 목적에 따라 List와 Set중 선택
-  2. 사용 목적에 따라 Map, List, Set 각각의 하위 구현체를 선택
-    2-1. Map: HashMap, LinkedHashMap, HashTable, TreeMap
-    2-2. List: LinkedList, ArrayList
-    2-3. Set: TreeSet, HashSet
+    - 1. Map과 Collection 인터페이스 중 선택
+        - 1-1. Collection 선택 시 사용 목적에 따라 List와 Set중 선택
+    - 2. 사용 목적에 따라 Map, List, Set 각각의 하위 구현체를 선택
+        - 2-1. Map: HashMap, LinkedHashMap, HashTable, TreeMap
+        - 2-2. List: LinkedList, ArrayList
+        - 2-3. Set: TreeSet, HashSet
+        
 * Collections Framework 동기화
     * [https://madplay.github.io/post/java-collection-synchronize](https://madplay.github.io/post/java-collection-synchronize)
+    
+- Collection 인터페이스
+  - List와 Set 인터페이스의 많은 공통된 부분을 Collection 인터페이스에서 정의하고, 두 인터페이스는 그것을 상속받는다.
+  - 따라서 Collection 인터페이스는 컬렉션을 다루는데 가장 기본적인 동작들을 정의하고, 그것을 메소드로 제공하고 있다.
+
+<img src="./img/Interface.png" width="70%" height="70%">
 
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
+> - [http://tcpschool.com/java/java_collectionFramework_concept](http://tcpschool.com/java/java_collectionFramework_concept)
 
 ---
 ### java Map 인터페이스 구현체의 종류
