@@ -15,7 +15,7 @@
 
 ### JVM 구조
 
-<img src="./img/JVM.png" width="70%" height="70%">
+<img src="./img/JVM.png" width="90%" height="90%">
 
 - JVM(Java Virtual Machine)
    - 자바 가상 머신으로 자바 바이트 코드를 실행할 수 있는 주체다.
@@ -43,7 +43,7 @@
     - JVM의 메모리 영역으로 자바 애플리케이션을 실행할 때 사용되는 데이터들을 적재하는 영역이다.
     - 이 영역은 크게 Method Area, Heap Area, Stack Area, PC Register, Native Method Stack로 나눌 수 있다.
 
-<img src="./img/Runtime.png" width="70%" height="70%">
+<img src="./img/Runtime.png" width="50%" height="50%">
 
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
 > - [https://jeong-pro.tistory.com/148](https://jeong-pro.tistory.com/148)
@@ -53,7 +53,7 @@
 ---
 ### Java Collections Framework
 
-<img src="./img/Collections.png" width="70%" height="70%">
+<img src="./img/Collections.png" width="80%" height="80%">
 
 - 컬렉션 프레임워크(collection framework)란?
     - 자바에서 컬렉션 프레임워크(collection framework)란 다수의 데이터를 쉽고 효과적으로 처리할 수 있는 표준화된 방법을 제공하는 클래스의 집합을 의미한다.
@@ -86,7 +86,7 @@
   - List와 Set 인터페이스의 많은 공통된 부분을 Collection 인터페이스에서 정의하고, 두 인터페이스는 그것을 상속받는다.
   - 따라서 Collection 인터페이스는 컬렉션을 다루는데 가장 기본적인 동작들을 정의하고, 그것을 메소드로 제공하고 있다.
 
-<img src="./img/Interface.png" width="70%" height="70%">
+<img src="./img/Interface.png" width="90%" height="90%">
 
 > :arrow_double_up:[Top](#7-java)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
 > - [http://tcpschool.com/java/java_collectionFramework_concept](http://tcpschool.com/java/java_collectionFramework_concept)
@@ -290,7 +290,7 @@
   * 반환 형태: boolean type
     * 같은 내용이면 return true, 다른 내용이면 return false
 * "==" VS "equals()" 예시
-<img src="./img/Equals.png" width="70%" height="70%">
+<img src="./img/Equals.png" width="90%" height="90%">
 
 ~~~java
 public class Test {
