@@ -224,7 +224,7 @@ public class Main {
 
 <br>
 
-### 오버로딩과-오버라이딩의-차
+### 오버로딩과-오버라이딩의-차이
 1. **오버로딩(Overloading)**
   - 두 메소드가 같은 이름을 갖고 있으나 **인자의 수나 자료형**이 다른 경우
   
@@ -291,6 +291,8 @@ public class Main {
     swap() 메소드 내의 매개변수 x,y가 서로 다르기 때문에 둘의 값이 변경되지 않는다.
 ![Call-by-Value](https://t1.daumcdn.net/cfile/tistory/26190835592FBA1032)
 
+<br>
+
 2. **Call-by-Reference의 개념**
     - **참조에 의한 호출**
     - 인자를 값이 아닌 주소(Address)로 넘겨줌으로써, 주소를 참조하여 데이터를 변경할 수 있다.
@@ -318,6 +320,8 @@ public class Main {
     - 일반 클래스들의 **필드와 메소드를 통일**하여 일반 클래스 작성 시 시간을 절약할 수 있다.
     - 추상 클래스는 단일 상속만 가능하며 일반 변수를 가질 수 있다.
 
+<br>
+
 2. 인터페이스(Interface)의 개념
     - 모든 메소드가 추상 메소드인 경우
     - 추상 클래스보다 한 단계 더 추상화된 클래스
@@ -332,8 +336,10 @@ public class Main {
 구현 객체의 같은 동작을 보장하기 위한 목적으로 인터페이스의 변수는 스스로 초기화 될 권한이 없어서  
 아무 인스턴스도 존재하지 않는 시점이기 때문이다.
  
+<br>
+ 
 3. 클래스와 인터페이스 사이 관계 이해하기
-![상속 키워드](https://cbw1030.tistory.com/47)
+![상속 키워드](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLPs83%2Fbtqw0nb8nO1%2FSKpKurnKKuCeTUbjWqRLf0%2Fimg.png)
 - 클래스끼리, 인터페이스끼리 상속을 할 때는 extends, 클래스가 인터페이스를 상속받을 때는 implements 키워드를 사용
 
 4. 추상 클래스와 인터페이스의 공통점과 차이점
