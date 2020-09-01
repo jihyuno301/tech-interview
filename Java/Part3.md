@@ -310,10 +310,11 @@ public class Main {
 <br>
 
 ### 인터페이스와-추상-클래스의-차이
-1. 추상 클래스(Abstract Class)의 개념
+1. **추상 클래스(Abstract Class)의 개념**
     - 클래스 구현부 내부에 **추상 메소드가 하나 이상 포함되거나 abstract로 정의**된 경우를 말한다.
     - **동일한 부모를 가지는 클래스를 묶는 개념으로 상속을 받아서 기능을 확장시키는 것이 목적**이다.
-1-1. 추상 클래스(Abstract Class)의 특징
+    
+1-1. **추상 클래스(Abstract Class)의 특징**
     - 추상 클래스는 **new 연산자를 사용하여 객체를 생성할 수 없다.**
     - 추상 클래스(부모)와 일반 클래스(자식)는 상속의 관계에 놓여있다.
     - 추상 클래스는 **새로운 일반 클래스를 위한 부모 클래스의 용도**로만 사용된다.
@@ -338,9 +339,9 @@ public class Main {
  
 <br>
  
-3. 클래스와 인터페이스 사이 관계 이해하기
+3. 클래스와 인터페이스 사이 관계 이해하기   
 ![상속 키워드](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLPs83%2Fbtqw0nb8nO1%2FSKpKurnKKuCeTUbjWqRLf0%2Fimg.png)
-- 클래스끼리, 인터페이스끼리 상속을 할 때는 extends, 클래스가 인터페이스를 상속받을 때는 implements 키워드를 사용
+    - 클래스끼리, 인터페이스끼리 상속을 할 때는 extends, 클래스가 인터페이스를 상속받을 때는 implements 키워드를 사용
 
 4. 추상 클래스와 인터페이스의 공통점과 차이점
     - 공통점
