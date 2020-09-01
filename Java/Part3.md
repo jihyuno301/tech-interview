@@ -280,7 +280,24 @@ public class Main {
 이 변수의 '참조값' (혹은 주소, 포인터)를 넘겨주는 방식을 Call by Reference라고 한다.   
 자바는 Call by Value 방식으로 동작하게 된다.
 
-- 자바의 메소드 호출 방식 ( = call by value)   
+- **자바의 메소드 호출 방식** ( = call by value)   
+  - 예시
+  ``` java
+        public static void main(String[] args) {
+        int a = 1;
+        int b = 2;
+        swap(a, b);
+
+        System.out.println(a); //출력결과 1
+        System.out.println(b); //출력결과 2
+        }
+
+        static void swap(int a, int b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+       }
+  ```
  
 > **자바의 함수 호출 방식이 Call by Value**이기 때문에 인자로 넘겨주었던 변수들의 값이 변경 되지 않고, 그대로 출력된다.
 
@@ -299,6 +316,33 @@ public class Main {
     - 메소드 호출시 사용되는 인자 값의 **메모리에 저장되어 있는 주소(Address)를 복사하여 보낸다.**
     
 2-1. **Call-by-Reference의 예시**   
+    - 예시
+  ``` java
+        Class CallByReference{
+            int value;
+
+            CallByReference(int value) {
+                this.value = value;
+            }
+
+            public static void swap(CallByReference x, CallByReference y) {
+                int temp = x.value;
+                x.value = y.value;
+                y.value = temp;
+            }
+
+            public static void main(String[] args) {
+                CallByReference a = new CallByReference(10);
+                CallByReference b = new CallByReference(20);
+
+                System.out.println("swap() 호출 전 : a = " + a.value + ", b = " + b.value);
+
+                swap(a, b);
+
+                System.out.println("swap() 호출 전 : a = " + a.value + ", b = " + b.value);
+            }
+        }
+  ```
 
 > 원하는 대로 a와 b의 값이 잘 바뀌어서 출력이 된다. (호출 후 : a = 20, b = 10)
 
@@ -313,37 +357,39 @@ public class Main {
 1. **추상 클래스(Abstract Class)의 개념**
     - 클래스 구현부 내부에 **추상 메소드가 하나 이상 포함되거나 abstract로 정의**된 경우를 말한다.
     - **동일한 부모를 가지는 클래스를 묶는 개념으로 상속을 받아서 기능을 확장시키는 것이 목적**이다.
-    
+  
 1-1. **추상 클래스(Abstract Class)의 특징**
-    - 추상 클래스는 **new 연산자를 사용하여 객체를 생성할 수 없다.**
-    - 추상 클래스(부모)와 일반 클래스(자식)는 상속의 관계에 놓여있다.
-    - 추상 클래스는 **새로운 일반 클래스를 위한 부모 클래스의 용도**로만 사용된다.
-    - 일반 클래스들의 **필드와 메소드를 통일**하여 일반 클래스 작성 시 시간을 절약할 수 있다.
-    - 추상 클래스는 단일 상속만 가능하며 일반 변수를 가질 수 있다.
-
+   - 추상 클래스는 **new 연산자를 사용하여 객체를 생성할 수 없다.**
+   - 추상 클래스(부모)와 일반 클래스(자식)는 상속의 관계에 놓여있다.
+   - 추상 클래스는 **새로운 일반 클래스를 위한 부모 클래스의 용도**로만 사용된다.
+   - 일반 클래스들의 **필드와 메소드를 통일**하여 일반 클래스 작성 시 시간을 절약할 수 있다.
+   - 추상 클래스는 단일 상속만 가능하며 일반 변수를 가질 수 있다.
+    
 <br>
 
-2. 인터페이스(Interface)의 개념
+2. **인터페이스(Interface)의 개념**
     - 모든 메소드가 추상 메소드인 경우
     - 추상 클래스보다 한 단계 더 추상화된 클래스
     - 구현 객체가 같은 동작을 한다는 걸 보장하는 것이 목적이다.
-2-1. 인터페이스(Interface)의 특징 
-    - 인터페이스에 적는 모든 메서드들은 추상 메서드로 간주되기 때문에 abstract를 적지 않는다.
-    - default 예약어를 통해 일반 메소드 구현이 가능하다.
-    - static final 필드만 가질 수 있다. (public static final이 생략되어있다고 생각)
-    - new 연산자를 사용해 객체를 생성할 수 없다.
-    - 다중 상속이 가능하다.
+  
+2-1. **인터페이스(Interface)의 특징** 
+   - 인터페이스에 적는 모든 메서드들은 추상 메서드로 간주되기 때문에 abstract를 적지 않는다.
+   - default 예약어를 통해 일반 메소드 구현이 가능하다.
+   - static final 필드만 가질 수 있다. (public static final이 생략되어있다고 생각)
+   - new 연산자를 사용해 객체를 생성할 수 없다.
+   - 다중 상속이 가능하다.
+  
 > cf.) public static final을 사용하는 이유?   
 구현 객체의 같은 동작을 보장하기 위한 목적으로 인터페이스의 변수는 스스로 초기화 될 권한이 없어서  
 아무 인스턴스도 존재하지 않는 시점이기 때문이다.
  
 <br>
  
-3. 클래스와 인터페이스 사이 관계 이해하기   
+3. **클래스와 인터페이스 사이 관계 이해하기**   
 ![상속 키워드](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLPs83%2Fbtqw0nb8nO1%2FSKpKurnKKuCeTUbjWqRLf0%2Fimg.png)
     - 클래스끼리, 인터페이스끼리 상속을 할 때는 extends, 클래스가 인터페이스를 상속받을 때는 implements 키워드를 사용
 
-4. 추상 클래스와 인터페이스의 공통점과 차이점
+4. **추상 클래스와 인터페이스의 공통점과 차이점**
     - 공통점
         - 선언만 있고 구현 내용은 없는 클래스이다.
         - 인터페이스화(객체를 생성) 할 수 없다.
