@@ -281,7 +281,6 @@ public class Main {
 자바는 Call by Value 방식으로 동작하게 된다.
 
 - **자바의 메소드 호출 방식** ( = call by value)   
-  - 예시
   ``` java
         public static void main(String[] args) {
         int a = 1;
@@ -316,7 +315,6 @@ public class Main {
     - 메소드 호출시 사용되는 인자 값의 **메모리에 저장되어 있는 주소(Address)를 복사하여 보낸다.**
     
 2-1. **Call-by-Reference의 예시**   
-    - 예시
   ``` java
         Class CallByReference{
             int value;
