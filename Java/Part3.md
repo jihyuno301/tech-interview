@@ -279,25 +279,9 @@ public class Main {
 이 때 이 변수의 '값'을 넘겨 주는 호출 방식을 Call by Value,   
 이 변수의 '참조값' (혹은 주소, 포인터)를 넘겨주는 방식을 Call by Reference라고 한다.   
 자바는 Call by Value 방식으로 동작하게 된다.
-<br>
-- 자바의 메소드 호출 방식 ( = call by value)
-``` JAVA 
-    public static void main(String[] args) {
-    int a = 1;
-    int b = 2;
-    swap(a, b);
 
-    System.out.println(a); //출력결과 1
-    System.out.println(b); //출력결과 2
-    }
-
-    static void swap(int a, int b) {
-        int tmp = a;
-        a = b;
-        b = tmp;
-    }
-```
-
+- 자바의 메소드 호출 방식 ( = call by value)   
+ 
 > **자바의 함수 호출 방식이 Call by Value**이기 때문에 인자로 넘겨주었던 변수들의 값이 변경 되지 않고, 그대로 출력된다.
 
 1. **Call-by-Value의 개념**
@@ -311,33 +295,8 @@ public class Main {
     - **참조에 의한 호출**
     - 인자를 값이 아닌 주소(Address)로 넘겨줌으로써, 주소를 참조하여 데이터를 변경할 수 있다.
     - 메소드 호출시 사용되는 인자 값의 **메모리에 저장되어 있는 주소(Address)를 복사하여 보낸다.**
-2-1. **Call-by-Reference의 예시**
-``` java
-    Class CallByReference{
-        int value;
+2-1. **Call-by-Reference의 예시**   
 
-        CallByReference(int value) {
-            this.value = value;
-        }
-
-        public static void swap(CallByReference x, CallByReference y) {
-            int temp = x.value;
-            x.value = y.value;
-            y.value = temp;
-        }
-
-        public static void main(String[] args) {
-            CallByReference a = new CallByReference(10);
-            CallByReference b = new CallByReference(20);
-
-            System.out.println("swap() 호출 전 : a = " + a.value + ", b = " + b.value);
-
-            swap(a, b);
-
-            System.out.println("swap() 호출 전 : a = " + a.value + ", b = " + b.value);
-        }
-    }
-```
 > 원하는 대로 a와 b의 값이 잘 바뀌어서 출력이 된다. (호출 후 : a = 20, b = 10)
 
 ![Call-by-Reference](https://t1.daumcdn.net/cfile/tistory/2463F137592FBADE0A)
