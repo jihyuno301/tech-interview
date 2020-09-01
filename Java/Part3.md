@@ -281,7 +281,6 @@ public class Main {
 자바는 Call by Value 방식으로 동작하게 된다.
 <br>
 - 자바의 메소드 호출 방식 ( = call by value)
-
 ``` JAVA 
     public static void main(String[] args) {
     int a = 1;
@@ -300,6 +299,7 @@ public class Main {
 ```
 
 > **자바의 함수 호출 방식이 Call by Value**이기 때문에 인자로 넘겨주었던 변수들의 값이 변경 되지 않고, 그대로 출력된다.
+
 1. **Call-by-Value의 개념**
     - **값에 의한 호출**
     - 메소드 호출 시에 사용되는 인자의 **메모리에 저장되어 있는 값(Value)를 복사하여 보낸다.**
