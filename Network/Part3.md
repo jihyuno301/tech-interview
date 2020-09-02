@@ -299,3 +299,4 @@ ATM cell ATM cell switching은 물론이고, Ethernet frame switching, Frame Rel
 > - [https://velog.io/@hidaehyunlee/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-%ED%8C%A8%ED%82%B7-%ED%97%B7%EA%B0%88%EB%A6%B4-%EB%95%90-PDU%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90](https://velog.io/@imacoolgirlyo/web-socket과-socket.io)
 
 <br>
+javascript:(function(){$(".pagehead, .header, .file-history-tease, .breadcrumb, .file .meta, #footer").remove();$(".file").css("border","none");$(".entry-content p").css({margin:0,"text-indent":"1em"});$(".entry-content").css("color","#000")})()
