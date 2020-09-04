@@ -1,7 +1,7 @@
 # 2. Java - Part2
 ### :book: Contents
 * [OOP의 4가지 특징](#OOP의-4가지-특징)
-* [OOP의 5대 원칙 (SOLID)](#OOP의-5대-원칙-(SOLID))
+* [OOP의 5대 원칙 (SOLID)](#OOP의-5대-원칙)
 * [객체지향 프로그래밍과 절차지향 프로그래밍의 차이](#객체지향-프로그래밍과-절차지향-프로그래밍의-차이)
 * [객체지향(Object-Oriented)이란](#객체지향(Object-Oriented)이란)
 * [java의 non-static 멤버와 static 멤버의 차이](#java의-non-static-멤버와-static-멤버의-차이)
