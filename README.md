@@ -70,8 +70,8 @@
 
 ## 📌Operating System
 
-* [프로세스와 스레드의 차이(Process vs Thread)](./Operating System/Part1.md/#프로세스와-스레드의-차이)
-* [멀티 프로세스 대신 멀티 스레드를 사용하는 이유](./Operating System/Part1.md/#멀티-프로세스-대신-멀티-스레드를-사용하는-이유)
+* [프로세스와 스레드의 차이(Process vs Thread)](./Operating System/Part1.md#프로세스와-스레드의-차이)
+* [멀티 프로세스 대신 멀티 스레드를 사용하는 이유](./Operating System/Part1.md#멀티-프로세스-대신-멀티-스레드를-사용하는-이유)
 * [Thread-safe]()
 * [동기화 객체의 종류]()
 * [뮤텍스와 세마포어의 차이]()
