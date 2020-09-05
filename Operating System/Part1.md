@@ -107,3 +107,44 @@
   * 스레드 간의 자원 공유는 전역 변수(데이터 세그먼트)를 이용하므로 함께 상용할 때 충돌이 발생할 수 있다.
 
 > [http://you9010.tistory.com/136](http://you9010.tistory.com/136)
+
+
+### Thread-safe
+- **Thread-safe란?**
+    - 멀티스레드 환경에서 **여러 스레드**가 동시에 <u>하나의 객체 및 변수(공유 자원)에 접근</u>할 때, 의도한 대로 동작하는 것을 말한다.
+    - 이러한 상황을 "Thead-safe하다" 라고 표현한다.
+- **Thread-safe하게 구현하기**
+    - Thread-safe하기 위해서는 공유 자원에 접근하는 임계영역(critical section)을 동기화 기법으로 제어해줘야 한다.
+        - 이를 '상호배제'라고 한다.
+    - 동기화 기법으로는 Mutex나 Semaphore 등이 있다.
+- **Reentrant**
+    - Reentrant는 **재진입성**이라는 의미로, 어떤 함수가 Reentrant하다는 것은 여러 스레드가 동시에 접근해도 언제나 같은 실행 결과를 보장한다는 의미이다.
+    - 이를 만족하기 위해서 해당 서브루틴에서는 공유자원을 사용하지 않으면 된다.
+        - 예를들어 정적(전역) 변수를 사용하거나 반환하면 안 되고 호출 시 제공된 매개변수만으로 동작해야한다.
+    - 따라서, Reentrant하다면 Thread-safe하지만 그 역은 성립하지 않는다.
+
+> - [위키백과 - 재진입성](https://ko.wikipedia.org/wiki/%EC%9E%AC%EC%A7%84%EC%9E%85%EC%84%B1)
+> - [[OS] Thread Safe란? - 곰팡](gompangs.tistory.com/7)
+> - [스레드-안전(Thread-safe)과 재진입가능(Reentrant)의 차이 - 커피한잔의 여유와 코딩](sjava.net/tag/thread-safe/)
+
+### 동기화 객체의 종류
+* 스레드 동기화 방법
+    1. 실행 순서의 동기화
+        * 스레드의 실행순서를 정의하고, 이 순서에 반드시 따르도록 하는 것
+    2. 메모리 접근에 대한 동기화
+        * 메모리 접근에 있어서 동시접근을 막는 것
+        * 실행의 순서가 중요한 상황이 아니고, 한 순간에 하나의 스레드만 접근하면 되는 상황을 의미
+* 동기화 기법의 종류
+    1. 유저 모드 동기화
+        * 커널의 힘을 빌리지 않는(커널 코드가 실행되지 않는) 동기화 기법
+        * 성능상 이점, 기능상의 제한(라이브러리를 이용)
+        * **Ex) 크리티컬 섹션 기반의 동기화, 인터락 함수 기반의 동기화**
+    2. 커널 모드 동기화
+        * 커널에서 제공하는 동기화 기능을 활용하는 방법
+        * 기능상 우수, 속도 떨어짐. 각 프로세스들 안에 있는 쓰레드끼리의 동기화도 가능하다.(근데 잘 안 쓸 수도 있다)
+        * 커널 모드로의 변경이 필요하고 이는 성능 저하로 이어짐, 다양한 기능 활용 가능
+        * **Ex) 뮤텍스 기반의 동기화, 세마포어 기반의 동기화, 이름있는 뮤텍스 기반의 프로세스 동기화, 이벤트 기반의 동기화**
+
+> - [http://christin2.tistory.com/entry/Chapter-13-%EC%93%B0%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%B2%95-1](http://christin2.tistory.com/entry/Chapter-13-%EC%93%B0%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%B2%95-1)
+> - [https://m.blog.naver.com/PostView.nhn?blogId=smuoon4680&logNo=50127179815&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F](https://m.blog.naver.com/PostView.nhn?blogId=smuoon4680&logNo=50127179815&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
+
