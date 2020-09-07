@@ -123,19 +123,47 @@
 
 ### Context Switching
 
+* 프로세스와 PCB
+  * 먼저 프로세스란 실행중인 프로그램 또는 작업이라고 할 수 있다. 
+  * CPU가 프로세스를 실행하기 위해서는 프로세스에 대한 정보가 필요한데, 이를 Context라고 한다. 
+  * 각 프로세스의 Context를 저장한 공간을 PCB라고 한다.
+
+* PCB (Process Control Block)
+  * PCB는 운영체제의 커널 내부에 존재한다. 
+  * 또한, 각 프로세스의 생성과 동시에 생성되며, 프로세스 종료 시 함께 사라진다.
+  
+<img src="./img/PCB.png" width="20%" height="70%">
+
+ * PCB 정보
+  1) 프로세스 식별자(Process ID)
+  2) 프로세스 상태(Process State) : 생성(create), 준비(ready), 실행 (running), 대기(waiting), 완료(terminated) 
+  3) 프로그램 계수기(Program Counter) : 이 프로세스가 다음에 실행할 명령어의 주소
+  4) 사용 중인 레지스터 정보
+  5) CPU 스케줄링 정보 : 우선 순위, 최종 실행시각, CPU 점유시간 등
+  6) 메모리 관리 정보(Memory limits) : 사용 가능한 메모리 공간 정보
+  7) 입출력 상태 정보 : 프로세스에 할당된 입출력장치 목록, 사용 파일 목록 등
+  8) 포인터 : 부모 프로세스에 대한 포인터, 자식 프로세스에 대한 포인터, 프로세스가 위치한 메모리 주소에 대한 포인터, 할당된 자원에 대한 포인터 정보
+  
+<img src="./img/Switching.jpg" width="70%" height="70%">
+
+* 컨택스트 스위칭(Context Switching)이란?
+  * 프로세스 P0와 P1이 존재할 때, P0가 CPU를 점유중(excuting)이었고 P1이 대기중(idle)이었는 상태이다가 얼마후에는 P1이 실행이 되고 P0가 대기가 되는 상태가 찾아온다.
+  * 이때 P0가 실행중에서 대기로 변하게 될 때는 지금까지 작업해오던 내용을 모두 어딘가에 저장해야하는데 그것이 PCB라는 곳이다.
+  * 즉, P0는 PCB에 저장해야하고 P1이 가지고 있던 데이터는 PCB에서 가져와야한다. 
+  * 이러한 과정 즉, P0와 P1이 서로 대기<->실행을 번갈아가며 하는 것을 컨텍스트 스위칭이라고 한다.
+
+* 컨텍스트 스위칭(Context Switching)을 정리하자면
+  * CPU가 어떤 프로세스를 실행하고 있는 상태에서 인터럽트에 의해 다음 우선 순위를 가진 프로세스가 실행되어야 할 때 기존의 프로세스 정보들은 PCB에 저장하고 다음 프로세스의 정보를 PCB에서 가져와 교체하는 작업을 컨텍스트 스위칭이라 한다.
+  * 이러한 컨텍스트 스위칭을 통해 우리는 멀티 프로세싱, 멀티 스레딩 운영이 가능하다.
+
+
+
+
 > :arrow_double_up:[Top](#3-operating-system)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
 
-* Context Switching이란?
-    * 현재 진행하고 있는 Task(Process, Thread)의 상태를 저장하고 다음 진행할 Task의 상태 값을 읽어 적용하는 과정을 말한다. 
-* Context Switching 과정
-    1. Task의 대부분 정보는 Register에 저장되고 PCB(Process Control Block)로 관리된다. 
-    2. 현재 실행하고 있는 Task의 PCB 정보를 저장한다. (Process Stack, Ready Queue)
-    3. 다음 실행할 Task의 PCB 정보를 읽어 Register에 적재하고 CPU가 이전에 진행했던 과정을 연속적으로 수행할 수 있다.
-* Context Switching Cost (Process vs Thread)
-    * Process Context Switching 비용 > Thread Context Switching 비용
-    * Thread는 Stack 영역을 제외한 모든 메모리를 공유하므로 Context Switching 수행 시 Stack 영역만 변경하면 되기 때문에 비용이 적게 든다. 
-
 > - [Context Switching이란?](https://nesoy.github.io/articles/2018-11/Context-Switching)
+> - [Crocus](https://www.crocus.co.kr/1364)
+> - [https://velog.io/@sohi_5/](https://velog.io/@sohi_5/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-Context-Switching-suaduxev)
 
 ### Swapping
 > :arrow_double_up:[Top](#3-operating-system)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
