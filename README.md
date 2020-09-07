@@ -85,6 +85,6 @@
 * [사용자 수준 스레드와 커널 수준 스레드](./Operating-System/Part3.md#사용자-수준-스레드,-커널-수준-스레드)
 * [외부 단편화와 내부 단편화](./Operating-System/Part3.md#외부-단편화와-내부-단편화)
 * [Context Switching](./Operating-System/Part3.md#context-switching)
-* [Swapping](./Operating-System/Part3.md#swapping)
+* [Swapping](./Operating System/Part3.md#swapping)
 
 <br>
