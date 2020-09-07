@@ -84,7 +84,7 @@
 * [교착상태(데드락, Deadlock)의 개념과 조건](./Operating-System/Part3.md#교착상태의-개념과-조건)
 * [사용자 수준 스레드와 커널 수준 스레드](./Operating-System/Part3.md#사용자-수준-스레드,-커널-수준-스레드)
 * [외부 단편화와 내부 단편화](./Operating-System/Part3.md#외부-단편화와-내부-단편화)
-* [Context Switching](./Operating-System/Part3.md#context-switching)
-* [Swapping](./Operating-System/Part3.md#swapping)
+* [Context Switching](./OperatingSystem/Part3.md#context-switching)
+* [Swapping](./OperatingSystem/Part3.md#swapping)
 
 <br>
