@@ -166,8 +166,38 @@
 > - [https://velog.io/@sohi_5/](https://velog.io/@sohi_5/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-Context-Switching-suaduxev)
 
 ### Swapping
+
+* 메모리 스와핑(Swapping)
+  * 프로세스가 실행되기 위해서는 메모리에 있어야 하지만 필요한 경우 프로세스는 실행도중에 임시로 보조 메모리로 보내어졌다가다시 메모리로 되돌아 올 수 있다. 
+  * 라운드로빈 스케줄링을 하는 경우 다중 프로그램 환경에서 한 프로세스가 CPU 할당 시간이 끝나면 메모리 관리기(MMU)가 이 프로세스를 보조 메모리로 보내고 다른 프로세스를 메모리로 불러올 수 있다.
+  
+<img src="./img/Swapping.png" width="70%" height="70%">
+
+  * CPU 스케줄러는 메모리 내의 다른 프로세스에게도 시간 할당량(time quantum)을 정해 놓고 그 할당량을 모두 소비했을 때 그 프로세스도 스왑시킬 수 있다. 
+  * CPU 스케줄러는 할아 시간이 만료 되어 CPU를 새로 스케줄 할때마다 메모리 관리기가 메모리 내에 준비시켜 놓은 여러 프로세스들 중 하나를 고르기만 하면 된다.
+  * 시간 할당량은 스왑 작업을 고려하여 원활한 작업 처리가 이루어 질 수 있도록 충분히 길어야 한다. 
+  * 스와핑 정책은 시간 할당 외에도 우선순위 방식으로 바꿀 수도 있다. 이러한스와핑의 변형을 롤인(roll-in), 롤 아웃(roll_out)이라고한다.
+
+<img src="./img/Swapping2.png" width="70%" height="70%">
+
+  * 스와핑은 보조 메모리를 필요로 하며 보통 디스크를 사용한다. 
+  * 시스템은 실행 준비가 된 모든 프로세스를 모아 준비 완료 큐(Ready queue)에 가지고 있어야 한다. 
+  * CPU가 스케줄을 고를 때 디스패처(dispatcher)를 호출하고디스패처는 준비 완료 큐(Ready queue)에 있는 다음 프로세스가 메모리에 올라와 있는지 확인하여 메모리에 없다면 디스크로부터 읽어 들인다. 그런데 메모리에 이 프로세스에 대한 공간이 없다면 공간을만들기 위해 현재 메모리에 올라와 있는 프로세스를 내보내고(swap out) 원하는 프로세스를 불러들인다. 
+  * 그리고 나서 CPU의 모든 레지스터를 실행해야 할 프로세스의 것으로다시 적재하고 제어권을 그 프로세스에게 넘긴다.
+
+* [문맥교환 시간]
+  * 사용자 프로세스크기 10MB
+  * 보조 메모리의전송률 : 초당 40MB
+  * 10MB의 프로세스를 전송하는데 걸리는 시간 10,000KB / 40,000 kb = 1/4초 = 250ms
+  * 헤드 탐색 시간이 없다고 가정하고 평균 8 밀리초의 회전 지연시간을가정 했을 때 스왑시간은 258ms가 된다. 스왑 시간의대부분은 디스크 전송 시간이다.
+  * 한 프로세스를 스왑 아웃하고 다른 프로세스를 스왑인 해야 하므로 총 스왑시간은516ms 가 필요하다. 
+  * 효과적인 CPU 사용을위해서 각 프로세스의 실행 시간은 스왑 시간보다 충분히 길어야 한다. 
+  * 라운드 로빈 스케줄링의 경우 최소 0.516초보다 커야 한다.
+
+  
+  
 > :arrow_double_up:[Top](#3-operating-system)    :leftwards_arrow_with_hook:[Back](https://github.com/jihyuno301/tech-interview/blob/master/README.md)    :information_source:[Home](https://github.com/jihyuno301/tech-interview)
-> - []()
+> - [https://m.blog.naver.com/PostView.nhn?blogId=jevida](https://m.blog.naver.com/PostView.nhn?blogId=jevida&logNo=140191090013&proxyReferer=https:%2F%2Fwww.google.com%2F)
 
 ---
 
