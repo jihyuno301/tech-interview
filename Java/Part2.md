@@ -83,7 +83,7 @@
 ### java의 제네릭과 c++의 템플릿의 차이
 * java의 제네릭(Generic)
   * 개념: 모든 종류의 타입을 다룰 수 있도록 일반화된 타입 매개 변수(generic type)로 클래스나 메서드를 선언하는 기법
-  * <img src="./images/generics.png" width="60%" height="60%">
+  * <img src="./img/Generics.png" width="60%" height="60%">
   * 처리 방법: 타입 제거(type erasure)라는 개념에 근거한다.
     * 소스 코드를 JVM이 인식하는 바이트 코드로 변환할 때 인자로 주어진 타입을 제거하는 기술이다.
     * 제네릭이 있다고 해서 크게 달라지는 것은 없다. 단지 코드를 좀 더 예쁘게 할 뿐이다.
