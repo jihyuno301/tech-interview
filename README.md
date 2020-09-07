@@ -70,12 +70,12 @@
 
 ## 📌Operating System
 
-* [프로세스와 스레드의 차이(Process vs Thread)]()
-* [멀티 프로세스 대신 멀티 스레드를 사용하는 이유]()
-* [Thread-safe]()
-* [동기화 객체의 종류]()
-* [뮤텍스와 세마포어의 차이]()
-* [스케줄러]()
+* [프로세스와 스레드의 차이(Process vs Thread)](./Operating-System/Part1.md#프로세스와-스레드의-차이)
+* [멀티 프로세스 대신 멀티 스레드를 사용하는 이유](./Operating-System/Part1.md#멀티-프로세스-대신-멀티-스레드를-사용하는-이유)
+* [Thread-safe](./Operating-System/Part1.md#Thread-safe)
+* [동기화 객체의 종류](./Operating-System/Part1.md#동기화-객체의-종류)
+* [뮤텍스와 세마포어의 차이](./Operating-System/Part1.md#뮤텍스와-세마포어의-차이)
+* [CPU 스케줄링](./Operating-System/Part1.md#CPU-스케줄링)
 * [동기와 비동기]()
 * [프로세스 동기화]()
 * [메모리 관리 전략]()
