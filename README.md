@@ -70,20 +70,20 @@
 
 ## 📌Operating System
 
-* [프로세스와 스레드의 차이(Process vs Thread)](./Operating-System/Part1.md#프로세스와-스레드의-차이)
-* [멀티 프로세스 대신 멀티 스레드를 사용하는 이유](./Operating-System/Part1.md#멀티-프로세스-대신-멀티-스레드를-사용하는-이유)
-* [Thread-safe](./Operating-System/Part1.md#Thread-safe)
-* [동기화 객체의 종류](./Operating-System/Part1.md#동기화-객체의-종류)
-* [뮤텍스와 세마포어의 차이](./Operating-System/Part1.md#뮤텍스와-세마포어의-차이)
+* [프로세스와 스레드의 차이(Process vs Thread)](./OperatingSystem/Part1.md#프로세스와-스레드의-차이)
+* [멀티 프로세스 대신 멀티 스레드를 사용하는 이유](./OperatingSystem/Part1.md#멀티-프로세스-대신-멀티-스레드를-사용하는-이유)
+* [Thread-safe](./OperatingSystem/Part1.md#Thread-safe)
+* [동기화 객체의 종류](./OperatingSystem/Part1.md#동기화-객체의-종류)
+* [뮤텍스와 세마포어의 차이](./OperatingSystem/Part1.md#뮤텍스와-세마포어의-차이)
 * [CPU 스케줄링](./OperatingSystem/Part1.md#CPU-스케줄링)
 * [동기와 비동기]()
 * [프로세스 동기화]()
 * [메모리 관리 전략]()
 * [가상 메모리]()
 * [캐시의 지역성]()
-* [교착상태(데드락, Deadlock)의 개념과 조건](./Operating-System/Part3.md#교착상태의-개념과-조건)
-* [사용자 수준 스레드와 커널 수준 스레드](./Operating-System/Part3.md#사용자-수준-스레드,-커널-수준-스레드)
-* [외부 단편화와 내부 단편화](./Operating-System/Part3.md#외부-단편화와-내부-단편화)
+* [교착상태(데드락, Deadlock)의 개념과 조건](./OperatingSystem/Part3.md#교착상태의-개념과-조건)
+* [사용자 수준 스레드와 커널 수준 스레드](./OperatingSystem/Part3.md#사용자-수준-스레드,-커널-수준-스레드)
+* [외부 단편화와 내부 단편화](./OperatingSystem/Part3.md#외부-단편화와-내부-단편화)
 * [Context Switching](./OperatingSystem/Part3.md#context-switching)
 * [Swapping](./OperatingSystem/Part3.md#swapping)
 
