@@ -25,6 +25,13 @@
 
 통신이 일어나는 과정을 단계별로 알 수 있고, 특정한 곳에 이상이 생기면 그 단계만 수정할 수 있기 때문이다.
 
+**데이터의 계층별 이름(PDU, 데이터의 전송 단위)**
+* Application / Presentation / Session : Data
+* Transport : Segment
+* Network : Packet
+* Data Linke : Frame
+* Physical : Bit
+
 **1) 물리(Physical)**
 
 > 리피터, 케이블, 허브 등
