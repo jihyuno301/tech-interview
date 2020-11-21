@@ -17,6 +17,7 @@
 * [Spring JDBC를 이용한 데이터 접근](#spring-jdbc를-이용한-데이터-접근)
 * [Annotation이란](#Annotation이란)
 * [Filter와 Interceptor 차이](#filter와-interceptor-차이)
+* [Mybatis](#mybatis)
 
 ---
 
@@ -382,6 +383,38 @@ Plain Old Java Objet(평범한 구식 자바 객체)
 > - [[Spring] Filter, Interceptor, AOP 차이](https://velog.io/@sa833591/Spring-Filter-Interceptor-AOP-%EC%B0%A8%EC%9D%B4-yvmv4k96)
 > - [Spring Filter와 Interceptor](https://jaehun2841.github.io/2018/08/25/2018-08-18-spring-filter-interceptor/#spring-request-flow)
 > - [(Spring)Filter와 Interceptor의 차이](https://supawer0728.github.io/2018/04/04/spring-filter-interceptor/)
+
+
+### ORM
+
+- RDBS에서 조회한 데이터를 Java 객체로 변환하여 리턴해 주고, Java 객체를 RDBMS에 저장해주는 라이브러리 혹은 기술을 말한다.
+- Java ORM 기술로 유명한 것은 mybatis, Hibernate, JPA 이다.
+- Mybatis와 Hibernate는 오픈소스 프로젝트이고 jar 라이브러리 형태로 제공된다.
+- JPA(Java persistence API)는 API 표준의 이름이다. JPA 표준 규격대로 만들어진 제품 중에서 유명한 것이 Hibernate 오픈소스 라이브러리이다.
+- 우리가 사용하는 Spring JPA에 Hibernate 라이브러리가 포함되어 있다. 
+- 우리나라의 전자 정보 표준 프레임워크에서 Spring Mybatis를 채택하고 있기 때문에, 우리나라 공공 프로젝트에서 Mybatis를 사용하는 경우가 많다. 그렇지만 JPA가 좀 더
+미래지향적인 기술이기 때문에 점점 JPA를 사용하는 경우가 늘어나고 있다. 
+
+> :arrow_double_up:[Top](#Spring)  
+
+### Mybatis
+
+-  객체, 데이터베이스, Mapper 자체를 독립적으로 작성하고, DTO에 해당하는 부분과 SQL 실행결과를 매핑해서 사용할 수 있도록 지원한다.
+- 기존에는 DAO에 모든 SQL문이 자바 소스상에 위치했으나, MyBatis를 통해 SQL은 XML 설정 파일로 관리한다. 
+- 설정파일로 분리하면, 수정할 때 설정파일만 건드리면 되므로 유지보수에 매우 좋고, 또한 매개변수나 리턴 타입으로 매핑되는 모든 DTO에 관련된 부분도 모두 설정파일에서 작업할 수 있는 장점이 있습니다.
+
+* 장점
+    * 익숙한 SQL 명령으로 구현할 수 있다.
+    * DB 조회 결과를 복잡한 객체 구조로 변환해야 할 때 mybatis 기능이 좋다.
+    * mybatis의 resultMap 기능이 바로 그것이다.
+* 단점
+    * 구현할 소스코드의 양이 상대적으로 많다.
+    * RDBMS에만 적용할 수 있다. 
+    * DBMS 제품을 교체하면 SQL 소스코드를 수정해야 한다. SQL문을 사용하지 않는 Hibernate, JPA에는 이런 문제가 없다. 
+
+> :arrow_double_up:[Top](#Spring) 
+ 
+
 
 ---
 
