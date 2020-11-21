@@ -388,5 +388,3 @@ Plain Old Java Objet(평범한 구식 자바 객체)
 ## Reference
 > - []()
 
-
-## :house: [Home](https://github.com/WeareSoft/tech-interview)
