@@ -6,6 +6,9 @@
 * [IOC(Inversion of Control, 제어의 역전)란](#ioc란)
 * [Bean이란](#bean이란)
 * [MVC 패턴이란](#mvc-패턴이란)
+* [MVC1과 MVC2 패턴차이(#MVC1과-MVC2-패턴차이)
+* [JSP와 서블릿 비교](#JSP와-서블릿-비교)
+* [Spring MVC 구조 흐름](#Spring-MVC-구조-흐름)
 * [DI(Dependency Injection, 의존성 주입)란](#di란)
 * [AOP(Aspect Oriented Programming)란](#aop란)
 * [POJO](#pojo)
@@ -107,8 +110,7 @@
 * application
   * ServletContext 생명주기 안에 한 개의 Bean 지정
   * Spring MVC Web Application에서 사용
-
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
+  
 > - [[Spring] IOC(Inversion Of Control): 제어 역전](https://velog.io/@max9106/Spring-IOC%EB%AF%B8%EC%99%84)
 > - [[Spring] Spring Bean의 개념과 Bean Scope 종류](https://gmlwjd9405.github.io/2018/11/10/spring-beans.html)
 > - [Spring 빈/컨테이너 생명주기 (Lifecycle)](https://flowarc.tistory.com/entry/Spring-%EB%B9%88%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0-Lifecycle)
@@ -117,11 +119,28 @@
 
 
 
-
-
 ### MVC 패턴이란
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-> - []()
+- MVC 패턴은 코드의 재사용에 유용하며, 사용자 인터페이스와 응용 프로그램 개발에 소요되는 시간을 줄여주는 효과적인 설계 방식을 말한다.
+- 구성요소로는 Model, View, Controller가 있다. Model은 핵심적인 비즈니스 로직을 담당하여 데이터베이스를 관리하는 부분이고, View는 사용자에게 보여주는 화면, Controller는 모델과 뷰 사이에서 정보 교환을 할 수 있도록 연결해주는 역할을 한다. 
+
+> - [https://gyoogle.dev/blog/interview/%EC%9B%B9.html](https://gyoogle.dev/blog/interview/%EC%9B%B9.html)
+
+### MVC1과 MVC2 패턴차이
+
+![MVC1](https://media.vlpt.us/images/aquarius1997/post/17220321-434a-4077-b17c-eeb0d3db2710/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-03-09%20%EC%98%A4%ED%9B%84%206.23.19.png)
+
+- MVC1 패턴의 경우 View와 Controller를 모두 JSP가 담당하는 형태를 가진다. JSP 페이지 안에서 로직 처리를 위해 자바 코드와 함께 사용이 되고, 브라우저에서 JSP에 요청이 오면 직접 자바빈이나 클래스를 이용해 작업을 처리하고, 이를 클라이언트에 출력해준다. 단순한 프로젝트에서는 괜찮지만 큰 프로젝트에서는 조금 사용하기 어려운 패턴이다. JSP 하나에서 MVC가 모두 이루어지다보니 재사용성도 매우 떨어지고, 코드 가독성도 떨어진다. 또한 유지보수가 어렵다. 
+
+![MVC2](https://media.vlpt.us/images/aquarius1997/post/d70dd070-4aa3-46da-b57a-54a9b0f3e10e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-03-09%20%EC%98%A4%ED%9B%84%206.32.36.png)
+
+- MVC2 패턴은 이와는 다르게 모든 처리를 JSP에서만 담당하는 것이 아니라 서블릿을 만들어 역할 분담을 하는 패턴이다. 요청 결과를 출력해주는 뷰만 JSP가 담당하고, 흐름을 제어해주고 비즈니스 로직에 해당하는 컨트롤러 역할을 서블릿이 담당하게 된다. 이처럼 역할을 분담하면서 유지보수가 용이해지는 장점이 있지만 습득하기 힘들고 구조가 복잡해지는 단점도 있다. 
+- 스프링 프레임워크가 MVC2 패턴
+
+> - [https://velog.io/@aquarius1997/MVC-%ED%8C%A8%ED%84%B4](https://velog.io/@aquarius1997/MVC-%ED%8C%A8%ED%84%B4)
+
+### JSP와 서블릿 비교
+
+### Spring MVC 구조 흐름
 
 ### DI란
 - DI?
