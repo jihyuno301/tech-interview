@@ -6,7 +6,7 @@
 * [IOC(Inversion of Control, 제어의 역전)란](#ioc란)
 * [Bean이란](#bean이란)
 * [MVC 패턴이란](#mvc-패턴이란)
-* [MVC1과 MVC2 패턴차이(#MVC1과-MVC2-패턴차이)
+* [MVC1과 MVC2 패턴차이](#MVC1과-MVC2-패턴차이)
 * [JSP와 서블릿 비교](#JSP와-서블릿-비교)
 * [Spring MVC 구조 흐름](#Spring-MVC-구조-흐름)
 * [DI(Dependency Injection, 의존성 주입)란](#di란)
