@@ -15,6 +15,7 @@
 * [POJO](#pojo)
 * [DAO와 DTO의 차이](#dao와-dto의-차이)
 * [Spring JDBC를 이용한 데이터 접근](#spring-jdbc를-이용한-데이터-접근)
+* [Annotation이란](#Annotation이란)
 * [Filter와 Interceptor 차이](#filter와-interceptor-차이)
 
 ---
@@ -192,6 +193,8 @@
     - Dependency Injection은 Spring 프레임워크에서 지원하는 IoC의 형태이다. 
     - DI는 클래스 사이의 의존관계를 빈 설정 정보를 바탕으로 컨테이너가 자동적으로 연결해주는 것을 말한다. 개발자들은 제어를 담당할 필요없이 빈 설정 파일에 의존관계가 필요하다는 정보만 추가해주면 된다.
         - 컨테이너가 실행 흐름의 주체가 되어 애플리케이션 코드에 의존관계를 주입해주는 것.
+    - 객체는 직접 의존하고 있는 객체를 생성하거나 검색할 필요가 없으므로 코드 관리가 쉬워지는 장점이 있다.
+
 - 의존성(Dependency)
     - 현재 객체가 다른 객체와 상호작용(참조)하고 있다면 다른 객체들을 현재 객체의 의존이라 한다.
 - 의존성이 위험한 이유
@@ -209,7 +212,6 @@
     - Method(Setter) Injection : 메소드 매개 변수 삽입
     - Field Injection : 멤버 변수 삽입
 
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [http://www.nextree.co.kr/p11247/](http://www.nextree.co.kr/p11247/)
 > - [http://wiki.javajigi.net/pages/viewpage.action?pageId=281](http://wiki.javajigi.net/pages/viewpage.action?pageId=281)
 > - [http://tony-programming.tistory.com/entry/Dependency-의존성-이란](http://tony-programming.tistory.com/entry/Dependency-의존성-이란) 
@@ -258,6 +260,7 @@
 
 * Spring AOP 특징
   - [프록시 패턴](https://velog.io/@max9106/Spring-%ED%94%84%EB%A1%9D%EC%8B%9C-AOP-xwk5zy57ee) 기반의 AOP 구현체
+    - 프록시 객체는 원래 객체를 감싸고 있는 객체이다. 원래 객체와 타입은 동일하다. 프록시 객체가 원래 객체를 감싸서 client의 요청을 처리하게 하는 패턴이다. 프록시 패턴을 쓰는 이유는 접근을 제어하고 싶거나, 부가 기능을 추가하고 싶을 때 사용한다.
     - Target 객체에 대한 프록시를 만들어 제공
     - Target을 감싸는 프록시는 런타임 시 생성
     - 접근 제어 및 부가 기능 추가를 위해 프록시 객체 사용
@@ -266,7 +269,6 @@
     - 메소드 조인 포인트만 지원하여 메소드가 호출되는 런타임 시점에만 Advice 적용 가능
   - 모든 AOP기능을 제공하지는 않으며 스프링 IoC와 연동하여 엔터프라이즈 애플리케이션의 각종 문제(중복 코드, 프록시 클래스 작성의 번거로움, 객체 간 관계 복잡도 증가)에 대한 해결책 지원 목적
 
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [[Spring] 스프링 AOP (Spring AOP) 총정리 : 개념, 프록시 기반 AOP, @AOP](https://engkimbs.tistory.com/746)
 > - [[Spring] AOP란?](https://velog.io/@max9106/Spring-AOP%EB%9E%80-93k5zjsm95)
 > - [Spring AOP, Aspect 개념 특징, AOP 용어 정리](https://shlee0882.tistory.com/206)
@@ -300,16 +302,36 @@ Plain Old Java Objet(평범한 구식 자바 객체)
 - **DTO(Data Transfer Object)**
     - 계층간 데이터 교환을 위한 자바빈즈를 말한다.
         - 여기서 말하는 계층은 Controller, View, Business Layer, Persistent Layer 이다.
-    - 일반적인 DTO는 로직을 갖고 있지 않는 순수한 데이터 객체이며, 속성과 그 속성에 접근하기 위한 getter, setter 메소드만 가진 클래스이다.
+    - 일반적인 DTO는 **로직을 갖고 있지 않는 순수한 데이터 객체**이며, 속성과 그 속성에 접근하기 위한 getter, setter 메소드만 가진 클래스이다.
     - VO(Value Object) 라고도 불린다.
         - DTO와 동일한 개념이지만 read only 속성을 가진다.
-
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
+    -  프로퍼티(Property)
+        - setter/getter에서 set과 get이후에 나오는 단어가 property라고 약속한다. 
+        - setAge의 프로퍼티는 age, getName에서의 프로퍼티는 name 
+        - 중요한 점은 프로퍼티는 멤버변수 name, age로 결정되는 것이 아니라 getter/setter에서의 name과 age임을 명심해야 한다. 
+        - 자바는 다양한 프레임워크에서 **데이터 자동화 처리**를 위해 리플렉션 기법을 사용한다. 데이터 자동화 처리에서 제일 중요한 것은 **표준규격**이다. 
+        - 우리가 setter 요청을 하면 프레임워크단에서 setter가 실행된다. 그로 인하여, Layer(서버코딩->view코딩)에 데이터를 넘길 때  DTO를 쓰면 편하다. 
+        - 데이터가 자동적으로 클래스화 된다는 것이다. 데이터 자동화 처리된 DTO로 변환되어 우리는 손쉽게 데이터가 셋팅된 오브젝트를 받을 수 있다. 
+        - 프로퍼티 규격만 잘 지킨다면, 얼마든지 편하게 DTO로 받을 수 있다. 
+    
 > - [https://jungwoon.github.io/common%20sense/2017/11/16/DAO-VO-DTO/](https://jungwoon.github.io/common%20sense/2017/11/16/DAO-VO-DTO/)
 
 ### Spring JDBC를 이용한 데이터 접근
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
-> - []()
+
+- 데이터베이스 테이블과, 자바 객체 사이의 단순한 매핑을 간단한 설정을 통해 처리하는 것
+- 기존의 JDBC에서는 구현하고 싶은 로직마다 필요한 SQL문이 모두 달랐고, 이에 필요한 Connection, PrepareStatement, ResultSet 등을 생성하고 Exception 처리도 모두 해야하는 번거러움이 존재했습니다.
+- Spring에서는 JDBC와 ORM 프레임워크를 직접 지원하기 때문에 따로 작성하지 않아도 모두 다 처리해주는 장점이 있습니다.
+
+### Annotation이란
+
+- 소스코드에 @어노테이션의 형태로 표현하며 클래스, 필드, 메소드의 선언부에 적용할 수 있는 특정기능이 부여된 표현법을 말합니다.
+- 애플리케이션 규모가 커질수록, xml 환경설정이 매우 복잡해지는데 이러한 어려움을 개선시키기 위해 자바 파일에 어노테이션을 적용해서 개발자가 설정 파일 작업을 할 때 발생시키는 오류를 최소화해주는 역할을 합니다.
+- 어노테이션 사용으로 소스 코드에 메타데이터를 보관할 수 있고, 컴파일 타임의 체크뿐 아니라 어노테이션 API를 사용해 코드 가독성도 높여줍니다.
+    - @Controller : dispatcher-servlet.xml에서 bean 태그로 정의하는 것과 같음.
+    - @RequestMapping : 특정 메소드에서 요청되는 URL과 매칭시키는 어노테이션
+    - @Autowired : 자동으로 의존성 주입하기 위한 어노테이션
+    - @Service : 비즈니스 로직 처리하는 서비스 클래스에 등록
+    - @Repository : DAO에 등록
 
 ### Filter와 Interceptor 차이
 
@@ -350,13 +372,12 @@ Plain Old Java Objet(평범한 구식 자바 객체)
   * afterCompletion() : view Rendering 후
 
 ##### Filter, Interceptor 차이점 요약
+* 필터와 인터셉터는 실행되는 시점에서 차이가 있다. 필터는 웹 애플리케이션에 등록을 하고, 인터셉터는 스프링의 context에 등록을 한다. 따라서 컨트롤러에 들어가기 전 작업을 처리하기 위해 사용하는 공통점이 있지만, 호출되는 시점에서 차이가 존재한다.
 * Filter는 WAS단에 설정되어 Spring과 무관한 자원에 대해 동작하고, Interceptor는 Spring Context 내부에 설정되어 컨트롤러 접근 전, 후에 가로채서 기능 동작
 * Filter는 doFilter() 메소드만 있지만, Interceptor는 pre와 post로 명확하게 분리
 * Interceptor의 경우 AOP 흉내 가능
   * handlerMethod(@RequestMapping을 사용해 매핑 된 @Controller의 메소드)를 파라미터로 제공하여 메소드 시그니처 등 추가 정보를 파악해 로직 실행 여부 판단 가능
 
-
-> :arrow_double_up:[Top](#9-spring)    :leftwards_arrow_with_hook:[Back](https://github.com/WeareSoft/tech-interview#9-spring)    :information_source:[Home](https://github.com/WeareSoft/tech-interview#tech-interview)
 > - [[Spring] Filter, Interceptor, AOP 차이 및 정리](https://goddaehee.tistory.com/154)
 > - [[Spring] Filter, Interceptor, AOP 차이](https://velog.io/@sa833591/Spring-Filter-Interceptor-AOP-%EC%B0%A8%EC%9D%B4-yvmv4k96)
 > - [Spring Filter와 Interceptor](https://jaehun2841.github.io/2018/08/25/2018-08-18-spring-filter-interceptor/#spring-request-flow)
