@@ -89,7 +89,7 @@
 
 <br>
 
-## 📌Java
+## 📌Spring
 
 * [스프링 프레임워크란](./Spring/READMe.md#스프링-프레임워크란)
 * [Spring과 Spring Boot의 차이](./Spring/READMe.md#spring과-spring-boot의-차이)
