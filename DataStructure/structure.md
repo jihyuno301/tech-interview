@@ -90,3 +90,54 @@
     - 배열보다 많은 메모리를 사용하며 데이터를 저장했지만, 탐색에 필요한 시간 복잡도가 같게 되는 비효율적인 상황이 발생 이를 해결하기 위해 Rebalancing 기법이 등장
     - Rebalancing : 균형을 잡기 위한 트리 구조의 재조정 (이 기법을 구현한 트리에는 여러 종류가 존재하는데 그 중에서 하나가 Red-Black Tree!)
   
+## Binary Heap
+
+1. 특징
+    - 자료구조의 일종으로 Tree의 형식을 하고 있으며, Tree 중에서도 배열에 기반한 Complete Binary Tree
+    - 배열에 트리의 값들을 넣어줄 때, 0번째는 건너뛰고 1번 index부터 루트노트가 시작된다.
+    - 이는 노드의 고유번호값과 배열의 index를 일치시켜 혼동을 줄이기 위함
+    - Heap에는 최대 힙 (max heap), 최소 힙 (min heap) 두 종류가 존재
+    - Max Heap : 각 노드의 값이 해당 children의 값보다 크거나 같은 complete binary tree (Min Heap은 그 반대!)
+2. 시간 복잡도
+    - 최대값을 찾는데 소요되는 시간 : O(1) ⇒ 루트 노드에 있는 값이 제일 크므로
+    - 완전 이진 트리이기 때문에 배열을 사용해 효율적인 관리가 가능 (Random access가 가능)
+    - 하지만, heap의 구조를 계속 유지하기 위해서는 제거된 루트 노드를 대체할 다른 노드가 필요 ⇒ 여기서 heap은 맨 마지막 노드를 루트 노드로 대체시킨 후, 다시 heapify 과정을 거쳐 heap 구조를 유지
+    - 이런 경우에는 결국 O(log n)의 시간 복잡도로 최대값 또는 최소값에 접근할 수 있게 된다.
+
+## Red Black Tree
+
+- BST를 기반으로하는 트리 형식의 자료구조
+- Red-Black Tree에 데이터를 저장하게 되면 search, insert, delete에 O(log n)의 시간 복잡도가 소요
+- 동일한 노드의 개수일 때, depth를 최소화하여 시간 복잡도를 줄이는 것이 핵심 아이디어
+- 동일한 노드의 개수일 때, depth가 최소가 되는 경우는 tree가 완전 이진 트리인 경우이다.
+
+### Red-Black Tree의 정의
+
+Red-black Tree는 다음의 성질들을 만족하는 BST이다.
+
+1. 각 노드는 Red or Black이라는 색깔을 갖는다.
+2. Root node의 색깔은 black이다.
+3. 각 leaf node는 black이다.
+4. 어떤 노드의 색깔이 red라면 두 개의 children의 색깔은 모두 black이다.
+5. 각 노드에 대해서 노드로부터 descendant leaves까지의 단순 경로는 모두 같은 수의 black nodes들을 포함하고 있다. 이를 해당 노드의 black-height라고 한다.
+(Black-Height : 노드 x로부터 노드 x를 포함하지 않은 leaf node까지의 simple path 상에  있는 black nodes들의 개수
+
+### Red-Black Tree의 특징
+
+1. 이진 탐색 트리이므로 BST의 특징을 모두 갖는다.
+2. Root node부터 leaf node까지의 모든 경로 중 최소 경로와 최대 경로의 크기 비율은 2보다 크지 않다. 이러한 상태를 balanced 상태라고 한다.
+3. 노드의 child가 없을 경우 child를 가리키는 포인터는 NIL 값을 저장한다. 이러한 NIL들을 leaf node로 간주한다.
+
+*cf) RBT는 BST의 삽입, 삭제 연산 과정에서 발생할 수 있는 문제점을  해결하기 위해 만들어진 자료구조이다. 이를 어떻게 해결한 것인가?*
+
+### 삽입
+
+우선 BST의 특성을 유지하면서 노드를 삽입한다. 그리고 삽입된 노드의 색깔을 RED로 지정한다. Red로 지정하는 이유는 Black-Height 변경을 최소화하기 위함이다.
+삽입 결과 RBT의 특성 위배(violation)시 노드의 색깔을 조정하고, Black-Height가 위배되었다면 rotation을 통해 height를 조정한다.
+
+이러한 과정을 통해 RBT의 동일한 height에 존재하는 internal node들의 Black-height가 같아지게 되고 최소 경로와 최대 경로의 크기 비율이 2미만으로 유지된다.
+
+### 삭제
+
+삭제될 노드의 child의 개수에 따라 rotation 방법이 달라지게된다.
+
